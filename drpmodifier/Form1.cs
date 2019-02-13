@@ -34,6 +34,15 @@ namespace drpmodifier
         {
             client = new DiscordRpcClient(clientIDTextBox.Text);
 
+            client.OnReady += (sender, e) =>
+            {
+                MessageBox.Show("Started with user " + e.User.Username);
+            };
+
+            client.OnPresenceUpdate += (sender, e) =>
+            {
+                
+            };
             client.Initialize();
 
             DateTime utcTime = DateTime.UtcNow;
