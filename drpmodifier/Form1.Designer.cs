@@ -28,12 +28,244 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.detailsTextBox = new System.Windows.Forms.RichTextBox();
+            this.largeImageTextBox = new System.Windows.Forms.RichTextBox();
+            this.stateLabel = new System.Windows.Forms.Label();
+            this.detailLabel = new System.Windows.Forms.Label();
+            this.endLabel = new System.Windows.Forms.Label();
+            this.largeImageLabel = new System.Windows.Forms.Label();
+            this.clientIDTextBox = new System.Windows.Forms.RichTextBox();
+            this.clientIDLabel = new System.Windows.Forms.Label();
+            this.initializeButton = new System.Windows.Forms.Button();
+            this.stateTextBox = new System.Windows.Forms.RichTextBox();
+            this.endTimeBox = new System.Windows.Forms.NumericUpDown();
+            this.smallImageTextBox = new System.Windows.Forms.RichTextBox();
+            this.smallImageLabel = new System.Windows.Forms.Label();
+            this.largeImageKeyTextBox = new System.Windows.Forms.RichTextBox();
+            this.smallImageKeyTextBox = new System.Windows.Forms.RichTextBox();
+            this.smallImageKeyLabel = new System.Windows.Forms.Label();
+            this.largeImageKeyLabel = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.endTimeBox)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // detailsTextBox
+            // 
+            this.detailsTextBox.Location = new System.Drawing.Point(11, 3);
+            this.detailsTextBox.Name = "detailsTextBox";
+            this.detailsTextBox.Size = new System.Drawing.Size(167, 27);
+            this.detailsTextBox.TabIndex = 1;
+            this.detailsTextBox.Text = "Big Game";
+            // 
+            // largeImageTextBox
+            // 
+            this.largeImageTextBox.Location = new System.Drawing.Point(13, 102);
+            this.largeImageTextBox.Name = "largeImageTextBox";
+            this.largeImageTextBox.Size = new System.Drawing.Size(167, 27);
+            this.largeImageTextBox.TabIndex = 4;
+            this.largeImageTextBox.Text = "Epic Text";
+            // 
+            // stateLabel
+            // 
+            this.stateLabel.AutoSize = true;
+            this.stateLabel.Location = new System.Drawing.Point(188, 36);
+            this.stateLabel.Name = "stateLabel";
+            this.stateLabel.Size = new System.Drawing.Size(32, 13);
+            this.stateLabel.TabIndex = 5;
+            this.stateLabel.Text = "State";
+            // 
+            // detailLabel
+            // 
+            this.detailLabel.AutoSize = true;
+            this.detailLabel.Location = new System.Drawing.Point(193, 9);
+            this.detailLabel.Name = "detailLabel";
+            this.detailLabel.Size = new System.Drawing.Size(39, 13);
+            this.detailLabel.TabIndex = 6;
+            this.detailLabel.Text = "Details";
+            // 
+            // endLabel
+            // 
+            this.endLabel.AutoSize = true;
+            this.endLabel.Location = new System.Drawing.Point(188, 72);
+            this.endLabel.Name = "endLabel";
+            this.endLabel.Size = new System.Drawing.Size(101, 13);
+            this.endLabel.TabIndex = 8;
+            this.endLabel.Text = "End Time (seconds)";
+            // 
+            // largeImageLabel
+            // 
+            this.largeImageLabel.AutoSize = true;
+            this.largeImageLabel.Location = new System.Drawing.Point(188, 105);
+            this.largeImageLabel.Name = "largeImageLabel";
+            this.largeImageLabel.Size = new System.Drawing.Size(90, 13);
+            this.largeImageLabel.TabIndex = 9;
+            this.largeImageLabel.Text = "Large Image Text";
+            // 
+            // clientIDTextBox
+            // 
+            this.clientIDTextBox.Location = new System.Drawing.Point(13, 235);
+            this.clientIDTextBox.Name = "clientIDTextBox";
+            this.clientIDTextBox.Size = new System.Drawing.Size(167, 27);
+            this.clientIDTextBox.TabIndex = 10;
+            this.clientIDTextBox.Text = "";
+            // 
+            // clientIDLabel
+            // 
+            this.clientIDLabel.AutoSize = true;
+            this.clientIDLabel.Location = new System.Drawing.Point(188, 235);
+            this.clientIDLabel.Name = "clientIDLabel";
+            this.clientIDLabel.Size = new System.Drawing.Size(47, 13);
+            this.clientIDLabel.TabIndex = 11;
+            this.clientIDLabel.Text = "Client ID";
+            // 
+            // initializeButton
+            // 
+            this.initializeButton.Location = new System.Drawing.Point(11, 293);
+            this.initializeButton.Name = "initializeButton";
+            this.initializeButton.Size = new System.Drawing.Size(75, 23);
+            this.initializeButton.TabIndex = 12;
+            this.initializeButton.Text = "initialize";
+            this.initializeButton.UseVisualStyleBackColor = true;
+            this.initializeButton.Click += new System.EventHandler(this.initializeButton_Click);
+            // 
+            // stateTextBox
+            // 
+            this.stateTextBox.Location = new System.Drawing.Point(12, 36);
+            this.stateTextBox.Name = "stateTextBox";
+            this.stateTextBox.Size = new System.Drawing.Size(166, 27);
+            this.stateTextBox.TabIndex = 13;
+            this.stateTextBox.Text = "Gaming";
+            // 
+            // endTimeBox
+            // 
+            this.endTimeBox.Increment = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            this.endTimeBox.Location = new System.Drawing.Point(12, 70);
+            this.endTimeBox.Maximum = new decimal(new int[] {
+            10000000,
+            0,
+            0,
+            0});
+            this.endTimeBox.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.endTimeBox.Name = "endTimeBox";
+            this.endTimeBox.Size = new System.Drawing.Size(167, 20);
+            this.endTimeBox.TabIndex = 14;
+            this.endTimeBox.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            this.endTimeBox.ValueChanged += new System.EventHandler(this.endTimeBox_ValueChanged);
+            // 
+            // smallImageTextBox
+            // 
+            this.smallImageTextBox.Location = new System.Drawing.Point(13, 168);
+            this.smallImageTextBox.Name = "smallImageTextBox";
+            this.smallImageTextBox.Size = new System.Drawing.Size(167, 27);
+            this.smallImageTextBox.TabIndex = 15;
+            this.smallImageTextBox.Text = "Smaller epic text";
+            // 
+            // smallImageLabel
+            // 
+            this.smallImageLabel.AutoSize = true;
+            this.smallImageLabel.Location = new System.Drawing.Point(188, 171);
+            this.smallImageLabel.Name = "smallImageLabel";
+            this.smallImageLabel.Size = new System.Drawing.Size(88, 13);
+            this.smallImageLabel.TabIndex = 16;
+            this.smallImageLabel.Text = "Small Image Text";
+            this.smallImageLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // largeImageKeyTextBox
+            // 
+            this.largeImageKeyTextBox.Location = new System.Drawing.Point(13, 135);
+            this.largeImageKeyTextBox.Name = "largeImageKeyTextBox";
+            this.largeImageKeyTextBox.Size = new System.Drawing.Size(167, 27);
+            this.largeImageKeyTextBox.TabIndex = 17;
+            this.largeImageKeyTextBox.Text = "large_image";
+            // 
+            // smallImageKeyTextBox
+            // 
+            this.smallImageKeyTextBox.Location = new System.Drawing.Point(13, 202);
+            this.smallImageKeyTextBox.Name = "smallImageKeyTextBox";
+            this.smallImageKeyTextBox.Size = new System.Drawing.Size(167, 27);
+            this.smallImageKeyTextBox.TabIndex = 18;
+            this.smallImageKeyTextBox.Text = "small_image";
+            // 
+            // smallImageKeyLabel
+            // 
+            this.smallImageKeyLabel.AutoSize = true;
+            this.smallImageKeyLabel.Location = new System.Drawing.Point(188, 205);
+            this.smallImageKeyLabel.Name = "smallImageKeyLabel";
+            this.smallImageKeyLabel.Size = new System.Drawing.Size(85, 13);
+            this.smallImageKeyLabel.TabIndex = 19;
+            this.smallImageKeyLabel.Text = "Small Image Key";
+            this.smallImageKeyLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // largeImageKeyLabel
+            // 
+            this.largeImageKeyLabel.AutoSize = true;
+            this.largeImageKeyLabel.Location = new System.Drawing.Point(186, 138);
+            this.largeImageKeyLabel.Name = "largeImageKeyLabel";
+            this.largeImageKeyLabel.Size = new System.Drawing.Size(87, 13);
+            this.largeImageKeyLabel.TabIndex = 20;
+            this.largeImageKeyLabel.Text = "Large Image Key";
+            this.largeImageKeyLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(292, 328);
+            this.Controls.Add(this.largeImageKeyLabel);
+            this.Controls.Add(this.smallImageKeyLabel);
+            this.Controls.Add(this.smallImageKeyTextBox);
+            this.Controls.Add(this.largeImageKeyTextBox);
+            this.Controls.Add(this.smallImageLabel);
+            this.Controls.Add(this.smallImageTextBox);
+            this.Controls.Add(this.endTimeBox);
+            this.Controls.Add(this.stateTextBox);
+            this.Controls.Add(this.initializeButton);
+            this.Controls.Add(this.clientIDLabel);
+            this.Controls.Add(this.clientIDTextBox);
+            this.Controls.Add(this.largeImageLabel);
+            this.Controls.Add(this.endLabel);
+            this.Controls.Add(this.detailLabel);
+            this.Controls.Add(this.stateLabel);
+            this.Controls.Add(this.largeImageTextBox);
+            this.Controls.Add(this.detailsTextBox);
+            this.Name = "Form1";
             this.Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)(this.endTimeBox)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
+
+        private System.Windows.Forms.RichTextBox detailsTextBox;
+        private System.Windows.Forms.RichTextBox largeImageTextBox;
+        private System.Windows.Forms.Label stateLabel;
+        private System.Windows.Forms.Label detailLabel;
+        private System.Windows.Forms.Label endLabel;
+        private System.Windows.Forms.Label largeImageLabel;
+        private System.Windows.Forms.RichTextBox clientIDTextBox;
+        private System.Windows.Forms.Label clientIDLabel;
+        private System.Windows.Forms.Button initializeButton;
+        private System.Windows.Forms.RichTextBox stateTextBox;
+        private System.Windows.Forms.NumericUpDown endTimeBox;
+        private System.Windows.Forms.RichTextBox smallImageTextBox;
+        private System.Windows.Forms.Label smallImageLabel;
+        private System.Windows.Forms.RichTextBox largeImageKeyTextBox;
+        private System.Windows.Forms.RichTextBox smallImageKeyTextBox;
+        private System.Windows.Forms.Label smallImageKeyLabel;
+        private System.Windows.Forms.Label largeImageKeyLabel;
     }
 }
 
