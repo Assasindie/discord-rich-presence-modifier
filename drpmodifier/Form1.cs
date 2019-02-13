@@ -32,28 +32,10 @@ namespace drpmodifier
 
         void Initalize()
         {
-            /*
-            Create a discord client
-            NOTE: 	If you are using Unity3D, you must use the full constructor and define
-                     the pipe connection as DiscordRPC.IO.NativeNamedPipeClient
-            */
             client = new DiscordRpcClient(clientIDTextBox.Text);
 
-            //Subscribe to events
-            client.OnReady += (sender, e) =>
-            {
-                MessageBox.Show("Received Ready from user {0}", e.User.Username);
-            };
-
-            client.OnPresenceUpdate += (sender, e) =>
-            {
-                MessageBox.Show("Received Update! {0}", e.Presence.ToString());
-            };
-
-            //Connect to the RPC
             client.Initialize();
-            //Set the rich presence
-            //Call this as many times as you want and anywhere in your code.
+
             DateTime utcTime = DateTime.UtcNow;
             DateTime gameTime = DateTime.UtcNow.AddSeconds(Convert.ToDouble(endTimeBox.Value));
             TimeSpan elapseTime = gameTime - utcTime;
