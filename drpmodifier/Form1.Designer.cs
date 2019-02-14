@@ -49,6 +49,8 @@
             this.joinSecretTextBox = new System.Windows.Forms.RichTextBox();
             this.joinSecretLabel = new System.Windows.Forms.Label();
             this.partyIDLabel = new System.Windows.Forms.Label();
+            this.updateButton = new System.Windows.Forms.Button();
+            this.createFileButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.endTimeBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -127,7 +129,7 @@
             this.initializeButton.Name = "initializeButton";
             this.initializeButton.Size = new System.Drawing.Size(75, 23);
             this.initializeButton.TabIndex = 12;
-            this.initializeButton.Text = "initialize";
+            this.initializeButton.Text = "Initialize";
             this.initializeButton.UseVisualStyleBackColor = true;
             this.initializeButton.Click += new System.EventHandler(this.initializeButton_Click);
             // 
@@ -257,11 +259,34 @@
             this.partyIDLabel.Text = "Party ID";
             this.partyIDLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // updateButton
+            // 
+            this.updateButton.Enabled = false;
+            this.updateButton.Location = new System.Drawing.Point(92, 345);
+            this.updateButton.Name = "updateButton";
+            this.updateButton.Size = new System.Drawing.Size(75, 23);
+            this.updateButton.TabIndex = 25;
+            this.updateButton.Text = "Update";
+            this.updateButton.UseVisualStyleBackColor = true;
+            this.updateButton.Click += new System.EventHandler(this.updateButton_Click);
+            // 
+            // createFileButton
+            // 
+            this.createFileButton.Location = new System.Drawing.Point(173, 345);
+            this.createFileButton.Name = "createFileButton";
+            this.createFileButton.Size = new System.Drawing.Size(75, 23);
+            this.createFileButton.TabIndex = 26;
+            this.createFileButton.Text = "Create File";
+            this.createFileButton.UseVisualStyleBackColor = true;
+            this.createFileButton.Click += new System.EventHandler(this.createFileButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(292, 380);
+            this.Controls.Add(this.createFileButton);
+            this.Controls.Add(this.updateButton);
             this.Controls.Add(this.partyIDLabel);
             this.Controls.Add(this.joinSecretLabel);
             this.Controls.Add(this.joinSecretTextBox);
@@ -314,6 +339,8 @@
         private System.Windows.Forms.RichTextBox joinSecretTextBox;
         private System.Windows.Forms.Label joinSecretLabel;
         private System.Windows.Forms.Label partyIDLabel;
+        private System.Windows.Forms.Button updateButton;
+        private System.Windows.Forms.Button createFileButton;
     }
 }
 
