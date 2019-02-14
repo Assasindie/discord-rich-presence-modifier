@@ -26,13 +26,21 @@ namespace drpmodifier
             {
                 MessageBox.Show("Please enter a client ID!");
             }
+            if(partyIDTextBox.Text == "")
+            {
+                MessageBox.Show("Please enter a Party ID!");
+            }
+            if(joinSecretTextBox.Text == "")
+            {
+                MessageBox.Show("Please enter the join secret!");
+            }
             Initalize();
 
         }
 
         void Initalize()
         {
-            client = new DiscordRpcClient(clientIDTextBox.Text);
+            client = new DiscordRpcClient(clientIDTextBox.Text, true);
 
             client.OnReady += (sender, e) =>
             {
@@ -52,6 +60,16 @@ namespace drpmodifier
             {
                 Details = detailsTextBox.Text,
                 State = stateTextBox.Text,
+                Party = new Party()
+                {
+                    ID = partyIDTextBox.Text,
+                    Max = 21,
+                    Size = 1,
+                },
+                Secrets = new Secrets()
+                {
+                    JoinSecret = joinSecretTextBox.Text,
+                },
                 Assets = new Assets()
                 {
                     LargeImageKey = largeImageKeyTextBox.Text,
@@ -60,6 +78,7 @@ namespace drpmodifier
                     SmallImageText = smallImageTextBox.Text,
                 },
                 Timestamps = Timestamps.FromTimeSpan(elapseTime)
+                
             });
             var timer = new System.Timers.Timer(150);
             timer.Elapsed += (sender, args) => { client.Invoke(); };

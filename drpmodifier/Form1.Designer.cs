@@ -45,6 +45,10 @@
             this.smallImageKeyTextBox = new System.Windows.Forms.RichTextBox();
             this.smallImageKeyLabel = new System.Windows.Forms.Label();
             this.largeImageKeyLabel = new System.Windows.Forms.Label();
+            this.partyIDTextBox = new System.Windows.Forms.RichTextBox();
+            this.joinSecretTextBox = new System.Windows.Forms.RichTextBox();
+            this.joinSecretLabel = new System.Windows.Forms.Label();
+            this.partyIDLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.endTimeBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -67,7 +71,7 @@
             // stateLabel
             // 
             this.stateLabel.AutoSize = true;
-            this.stateLabel.Location = new System.Drawing.Point(188, 36);
+            this.stateLabel.Location = new System.Drawing.Point(186, 36);
             this.stateLabel.Name = "stateLabel";
             this.stateLabel.Size = new System.Drawing.Size(32, 13);
             this.stateLabel.TabIndex = 5;
@@ -76,7 +80,7 @@
             // detailLabel
             // 
             this.detailLabel.AutoSize = true;
-            this.detailLabel.Location = new System.Drawing.Point(193, 9);
+            this.detailLabel.Location = new System.Drawing.Point(186, 9);
             this.detailLabel.Name = "detailLabel";
             this.detailLabel.Size = new System.Drawing.Size(39, 13);
             this.detailLabel.TabIndex = 6;
@@ -102,7 +106,7 @@
             // 
             // clientIDTextBox
             // 
-            this.clientIDTextBox.Location = new System.Drawing.Point(13, 235);
+            this.clientIDTextBox.Location = new System.Drawing.Point(11, 301);
             this.clientIDTextBox.Name = "clientIDTextBox";
             this.clientIDTextBox.Size = new System.Drawing.Size(167, 27);
             this.clientIDTextBox.TabIndex = 10;
@@ -111,7 +115,7 @@
             // clientIDLabel
             // 
             this.clientIDLabel.AutoSize = true;
-            this.clientIDLabel.Location = new System.Drawing.Point(188, 235);
+            this.clientIDLabel.Location = new System.Drawing.Point(186, 304);
             this.clientIDLabel.Name = "clientIDLabel";
             this.clientIDLabel.Size = new System.Drawing.Size(47, 13);
             this.clientIDLabel.TabIndex = 11;
@@ -119,7 +123,7 @@
             // 
             // initializeButton
             // 
-            this.initializeButton.Location = new System.Drawing.Point(11, 293);
+            this.initializeButton.Location = new System.Drawing.Point(11, 345);
             this.initializeButton.Name = "initializeButton";
             this.initializeButton.Size = new System.Drawing.Size(75, 23);
             this.initializeButton.TabIndex = 12;
@@ -174,7 +178,7 @@
             // smallImageLabel
             // 
             this.smallImageLabel.AutoSize = true;
-            this.smallImageLabel.Location = new System.Drawing.Point(188, 171);
+            this.smallImageLabel.Location = new System.Drawing.Point(186, 171);
             this.smallImageLabel.Name = "smallImageLabel";
             this.smallImageLabel.Size = new System.Drawing.Size(88, 13);
             this.smallImageLabel.TabIndex = 16;
@@ -200,7 +204,7 @@
             // smallImageKeyLabel
             // 
             this.smallImageKeyLabel.AutoSize = true;
-            this.smallImageKeyLabel.Location = new System.Drawing.Point(188, 205);
+            this.smallImageKeyLabel.Location = new System.Drawing.Point(186, 205);
             this.smallImageKeyLabel.Name = "smallImageKeyLabel";
             this.smallImageKeyLabel.Size = new System.Drawing.Size(85, 13);
             this.smallImageKeyLabel.TabIndex = 19;
@@ -217,11 +221,51 @@
             this.largeImageKeyLabel.Text = "Large Image Key";
             this.largeImageKeyLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // partyIDTextBox
+            // 
+            this.partyIDTextBox.Location = new System.Drawing.Point(11, 235);
+            this.partyIDTextBox.Name = "partyIDTextBox";
+            this.partyIDTextBox.Size = new System.Drawing.Size(167, 27);
+            this.partyIDTextBox.TabIndex = 21;
+            this.partyIDTextBox.Text = "";
+            // 
+            // joinSecretTextBox
+            // 
+            this.joinSecretTextBox.Location = new System.Drawing.Point(11, 268);
+            this.joinSecretTextBox.Name = "joinSecretTextBox";
+            this.joinSecretTextBox.Size = new System.Drawing.Size(167, 27);
+            this.joinSecretTextBox.TabIndex = 22;
+            this.joinSecretTextBox.Text = "";
+            // 
+            // joinSecretLabel
+            // 
+            this.joinSecretLabel.AutoSize = true;
+            this.joinSecretLabel.Location = new System.Drawing.Point(188, 268);
+            this.joinSecretLabel.Name = "joinSecretLabel";
+            this.joinSecretLabel.Size = new System.Drawing.Size(60, 13);
+            this.joinSecretLabel.TabIndex = 23;
+            this.joinSecretLabel.Text = "Join Secret";
+            this.joinSecretLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // partyIDLabel
+            // 
+            this.partyIDLabel.AutoSize = true;
+            this.partyIDLabel.Location = new System.Drawing.Point(186, 238);
+            this.partyIDLabel.Name = "partyIDLabel";
+            this.partyIDLabel.Size = new System.Drawing.Size(45, 13);
+            this.partyIDLabel.TabIndex = 24;
+            this.partyIDLabel.Text = "Party ID";
+            this.partyIDLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(292, 328);
+            this.ClientSize = new System.Drawing.Size(292, 380);
+            this.Controls.Add(this.partyIDLabel);
+            this.Controls.Add(this.joinSecretLabel);
+            this.Controls.Add(this.joinSecretTextBox);
+            this.Controls.Add(this.partyIDTextBox);
             this.Controls.Add(this.largeImageKeyLabel);
             this.Controls.Add(this.smallImageKeyLabel);
             this.Controls.Add(this.smallImageKeyTextBox);
@@ -266,6 +310,10 @@
         private System.Windows.Forms.RichTextBox smallImageKeyTextBox;
         private System.Windows.Forms.Label smallImageKeyLabel;
         private System.Windows.Forms.Label largeImageKeyLabel;
+        private System.Windows.Forms.RichTextBox partyIDTextBox;
+        private System.Windows.Forms.RichTextBox joinSecretTextBox;
+        private System.Windows.Forms.Label joinSecretLabel;
+        private System.Windows.Forms.Label partyIDLabel;
     }
 }
 
