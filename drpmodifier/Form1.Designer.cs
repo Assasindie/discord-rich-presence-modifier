@@ -284,7 +284,7 @@
             this.Controls.Add(this.largeImageTextBox);
             this.Controls.Add(this.detailsTextBox);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "DRP Modifier!";
             ((System.ComponentModel.ISupportInitialize)(this.endTimeBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
