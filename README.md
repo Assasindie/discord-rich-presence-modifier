@@ -12,5 +12,4 @@ Run the program and add in your applications client ID and press initialize, if 
 
 #Coming soon (maybe)
 Error reporting,
-.env for client ID,
 better UI (probably not)
