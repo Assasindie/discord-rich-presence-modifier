@@ -15,7 +15,7 @@ namespace drpmodifier
     public partial class Form1 : Form
     {
         public DiscordRpcClient client;
-        public TimeSpan elapseTime;
+        public DateTime gameTime;
 
         public Form1()
         {
@@ -29,7 +29,6 @@ namespace drpmodifier
             Initalize();
             updateButton.Enabled = true;
         }
-
         void Initalize()
         {
             client = new DiscordRpcClient(clientIDTextBox.Text, true);
@@ -44,10 +43,6 @@ namespace drpmodifier
                 
             };
             client.Initialize();
-
-            DateTime utcTime = DateTime.UtcNow;
-            DateTime gameTime = DateTime.UtcNow.AddSeconds(Convert.ToDouble(endTimeBox.Value));
-            elapseTime = gameTime - utcTime;
             ChangePresence();
             var timer = new System.Timers.Timer(150);
             timer.Elapsed += (sender, args) => { client.Invoke(); };
@@ -68,6 +63,10 @@ namespace drpmodifier
 
         public void ChangePresence()
         {
+            DateTime utcTime = DateTime.UtcNow;
+            gameTime = DateTime.UtcNow.AddSeconds(Convert.ToDouble(endTimeBox.Value));
+            TimeSpan elapseTime = gameTime - utcTime;
+
             client.SetPresence(new RichPresence()
             {
                 Details = detailsTextBox.Text,
