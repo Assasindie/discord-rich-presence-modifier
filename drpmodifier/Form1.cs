@@ -88,7 +88,7 @@ namespace drpmodifier
                     SmallImageKey = smallImageKeyTextBox.Text,
                     SmallImageText = smallImageTextBox.Text,
                 },
-                Timestamps = Timestamps.FromTimeSpan(elapseTime)
+                Timestamps = timeElapsedCheckBox.Checked ? Timestamps.Now : Timestamps.FromTimeSpan(elapseTime)
 
             });
         }
@@ -137,6 +137,17 @@ namespace drpmodifier
         private void createFileButton_Click(object sender, EventArgs e)
         {
             CreateFile();
+        }
+
+        private void timeElapsedCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            endTimeCheckBox.Checked = timeElapsedCheckBox.Checked ? false : true;
+            endTimeBox.Enabled = timeElapsedCheckBox.Checked ? false : true;
+        }
+
+        private void endTimeCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            timeElapsedCheckBox.Checked = endTimeCheckBox.Checked ? false : true;
         }
     }
 }

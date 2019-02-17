@@ -51,6 +51,8 @@
             this.partyIDLabel = new System.Windows.Forms.Label();
             this.updateButton = new System.Windows.Forms.Button();
             this.createFileButton = new System.Windows.Forms.Button();
+            this.endTimeCheckBox = new System.Windows.Forms.CheckBox();
+            this.timeElapsedCheckBox = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.endTimeBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,7 +66,7 @@
             // 
             // largeImageTextBox
             // 
-            this.largeImageTextBox.Location = new System.Drawing.Point(13, 102);
+            this.largeImageTextBox.Location = new System.Drawing.Point(11, 130);
             this.largeImageTextBox.Name = "largeImageTextBox";
             this.largeImageTextBox.Size = new System.Drawing.Size(167, 27);
             this.largeImageTextBox.TabIndex = 4;
@@ -91,7 +93,7 @@
             // endLabel
             // 
             this.endLabel.AutoSize = true;
-            this.endLabel.Location = new System.Drawing.Point(188, 72);
+            this.endLabel.Location = new System.Drawing.Point(186, 100);
             this.endLabel.Name = "endLabel";
             this.endLabel.Size = new System.Drawing.Size(101, 13);
             this.endLabel.TabIndex = 8;
@@ -100,7 +102,7 @@
             // largeImageLabel
             // 
             this.largeImageLabel.AutoSize = true;
-            this.largeImageLabel.Location = new System.Drawing.Point(188, 105);
+            this.largeImageLabel.Location = new System.Drawing.Point(186, 133);
             this.largeImageLabel.Name = "largeImageLabel";
             this.largeImageLabel.Size = new System.Drawing.Size(90, 13);
             this.largeImageLabel.TabIndex = 9;
@@ -108,7 +110,7 @@
             // 
             // clientIDTextBox
             // 
-            this.clientIDTextBox.Location = new System.Drawing.Point(11, 301);
+            this.clientIDTextBox.Location = new System.Drawing.Point(9, 332);
             this.clientIDTextBox.Name = "clientIDTextBox";
             this.clientIDTextBox.Size = new System.Drawing.Size(167, 27);
             this.clientIDTextBox.TabIndex = 10;
@@ -117,7 +119,7 @@
             // clientIDLabel
             // 
             this.clientIDLabel.AutoSize = true;
-            this.clientIDLabel.Location = new System.Drawing.Point(186, 304);
+            this.clientIDLabel.Location = new System.Drawing.Point(184, 332);
             this.clientIDLabel.Name = "clientIDLabel";
             this.clientIDLabel.Size = new System.Drawing.Size(47, 13);
             this.clientIDLabel.TabIndex = 11;
@@ -125,7 +127,7 @@
             // 
             // initializeButton
             // 
-            this.initializeButton.Location = new System.Drawing.Point(11, 345);
+            this.initializeButton.Location = new System.Drawing.Point(11, 380);
             this.initializeButton.Name = "initializeButton";
             this.initializeButton.Size = new System.Drawing.Size(75, 23);
             this.initializeButton.TabIndex = 12;
@@ -148,7 +150,7 @@
             0,
             0,
             0});
-            this.endTimeBox.Location = new System.Drawing.Point(12, 70);
+            this.endTimeBox.Location = new System.Drawing.Point(10, 98);
             this.endTimeBox.Maximum = new decimal(new int[] {
             10000000,
             0,
@@ -171,7 +173,7 @@
             // 
             // smallImageTextBox
             // 
-            this.smallImageTextBox.Location = new System.Drawing.Point(13, 168);
+            this.smallImageTextBox.Location = new System.Drawing.Point(11, 196);
             this.smallImageTextBox.Name = "smallImageTextBox";
             this.smallImageTextBox.Size = new System.Drawing.Size(167, 27);
             this.smallImageTextBox.TabIndex = 15;
@@ -180,7 +182,7 @@
             // smallImageLabel
             // 
             this.smallImageLabel.AutoSize = true;
-            this.smallImageLabel.Location = new System.Drawing.Point(186, 171);
+            this.smallImageLabel.Location = new System.Drawing.Point(184, 199);
             this.smallImageLabel.Name = "smallImageLabel";
             this.smallImageLabel.Size = new System.Drawing.Size(88, 13);
             this.smallImageLabel.TabIndex = 16;
@@ -189,7 +191,7 @@
             // 
             // largeImageKeyTextBox
             // 
-            this.largeImageKeyTextBox.Location = new System.Drawing.Point(13, 135);
+            this.largeImageKeyTextBox.Location = new System.Drawing.Point(11, 163);
             this.largeImageKeyTextBox.Name = "largeImageKeyTextBox";
             this.largeImageKeyTextBox.Size = new System.Drawing.Size(167, 27);
             this.largeImageKeyTextBox.TabIndex = 17;
@@ -197,7 +199,7 @@
             // 
             // smallImageKeyTextBox
             // 
-            this.smallImageKeyTextBox.Location = new System.Drawing.Point(13, 202);
+            this.smallImageKeyTextBox.Location = new System.Drawing.Point(11, 230);
             this.smallImageKeyTextBox.Name = "smallImageKeyTextBox";
             this.smallImageKeyTextBox.Size = new System.Drawing.Size(167, 27);
             this.smallImageKeyTextBox.TabIndex = 18;
@@ -206,7 +208,7 @@
             // smallImageKeyLabel
             // 
             this.smallImageKeyLabel.AutoSize = true;
-            this.smallImageKeyLabel.Location = new System.Drawing.Point(186, 205);
+            this.smallImageKeyLabel.Location = new System.Drawing.Point(184, 233);
             this.smallImageKeyLabel.Name = "smallImageKeyLabel";
             this.smallImageKeyLabel.Size = new System.Drawing.Size(85, 13);
             this.smallImageKeyLabel.TabIndex = 19;
@@ -216,7 +218,7 @@
             // largeImageKeyLabel
             // 
             this.largeImageKeyLabel.AutoSize = true;
-            this.largeImageKeyLabel.Location = new System.Drawing.Point(186, 138);
+            this.largeImageKeyLabel.Location = new System.Drawing.Point(184, 166);
             this.largeImageKeyLabel.Name = "largeImageKeyLabel";
             this.largeImageKeyLabel.Size = new System.Drawing.Size(87, 13);
             this.largeImageKeyLabel.TabIndex = 20;
@@ -225,7 +227,7 @@
             // 
             // partyIDTextBox
             // 
-            this.partyIDTextBox.Location = new System.Drawing.Point(11, 235);
+            this.partyIDTextBox.Location = new System.Drawing.Point(9, 263);
             this.partyIDTextBox.Name = "partyIDTextBox";
             this.partyIDTextBox.Size = new System.Drawing.Size(167, 27);
             this.partyIDTextBox.TabIndex = 21;
@@ -233,7 +235,7 @@
             // 
             // joinSecretTextBox
             // 
-            this.joinSecretTextBox.Location = new System.Drawing.Point(11, 268);
+            this.joinSecretTextBox.Location = new System.Drawing.Point(9, 296);
             this.joinSecretTextBox.Name = "joinSecretTextBox";
             this.joinSecretTextBox.Size = new System.Drawing.Size(167, 27);
             this.joinSecretTextBox.TabIndex = 22;
@@ -242,7 +244,7 @@
             // joinSecretLabel
             // 
             this.joinSecretLabel.AutoSize = true;
-            this.joinSecretLabel.Location = new System.Drawing.Point(188, 268);
+            this.joinSecretLabel.Location = new System.Drawing.Point(186, 296);
             this.joinSecretLabel.Name = "joinSecretLabel";
             this.joinSecretLabel.Size = new System.Drawing.Size(60, 13);
             this.joinSecretLabel.TabIndex = 23;
@@ -252,7 +254,7 @@
             // partyIDLabel
             // 
             this.partyIDLabel.AutoSize = true;
-            this.partyIDLabel.Location = new System.Drawing.Point(186, 238);
+            this.partyIDLabel.Location = new System.Drawing.Point(184, 266);
             this.partyIDLabel.Name = "partyIDLabel";
             this.partyIDLabel.Size = new System.Drawing.Size(45, 13);
             this.partyIDLabel.TabIndex = 24;
@@ -262,7 +264,7 @@
             // updateButton
             // 
             this.updateButton.Enabled = false;
-            this.updateButton.Location = new System.Drawing.Point(92, 345);
+            this.updateButton.Location = new System.Drawing.Point(92, 380);
             this.updateButton.Name = "updateButton";
             this.updateButton.Size = new System.Drawing.Size(75, 23);
             this.updateButton.TabIndex = 25;
@@ -272,7 +274,7 @@
             // 
             // createFileButton
             // 
-            this.createFileButton.Location = new System.Drawing.Point(173, 345);
+            this.createFileButton.Location = new System.Drawing.Point(173, 380);
             this.createFileButton.Name = "createFileButton";
             this.createFileButton.Size = new System.Drawing.Size(75, 23);
             this.createFileButton.TabIndex = 26;
@@ -280,11 +282,37 @@
             this.createFileButton.UseVisualStyleBackColor = true;
             this.createFileButton.Click += new System.EventHandler(this.createFileButton_Click);
             // 
+            // endTimeCheckBox
+            // 
+            this.endTimeCheckBox.AutoSize = true;
+            this.endTimeCheckBox.Checked = true;
+            this.endTimeCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.endTimeCheckBox.Location = new System.Drawing.Point(9, 70);
+            this.endTimeCheckBox.Name = "endTimeCheckBox";
+            this.endTimeCheckBox.Size = new System.Drawing.Size(71, 17);
+            this.endTimeCheckBox.TabIndex = 27;
+            this.endTimeCheckBox.Text = "End Time";
+            this.endTimeCheckBox.UseVisualStyleBackColor = true;
+            this.endTimeCheckBox.CheckedChanged += new System.EventHandler(this.endTimeCheckBox_CheckedChanged);
+            // 
+            // timeElapsedCheckBox
+            // 
+            this.timeElapsedCheckBox.AutoSize = true;
+            this.timeElapsedCheckBox.Location = new System.Drawing.Point(92, 69);
+            this.timeElapsedCheckBox.Name = "timeElapsedCheckBox";
+            this.timeElapsedCheckBox.Size = new System.Drawing.Size(90, 17);
+            this.timeElapsedCheckBox.TabIndex = 28;
+            this.timeElapsedCheckBox.Text = "Time Elapsed";
+            this.timeElapsedCheckBox.UseVisualStyleBackColor = true;
+            this.timeElapsedCheckBox.CheckedChanged += new System.EventHandler(this.timeElapsedCheckBox_CheckedChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(292, 380);
+            this.ClientSize = new System.Drawing.Size(292, 415);
+            this.Controls.Add(this.timeElapsedCheckBox);
+            this.Controls.Add(this.endTimeCheckBox);
             this.Controls.Add(this.createFileButton);
             this.Controls.Add(this.updateButton);
             this.Controls.Add(this.partyIDLabel);
@@ -341,6 +369,8 @@
         private System.Windows.Forms.Label partyIDLabel;
         private System.Windows.Forms.Button updateButton;
         private System.Windows.Forms.Button createFileButton;
+        private System.Windows.Forms.CheckBox endTimeCheckBox;
+        private System.Windows.Forms.CheckBox timeElapsedCheckBox;
     }
 }
 
