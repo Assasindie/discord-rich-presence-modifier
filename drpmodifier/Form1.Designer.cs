@@ -53,6 +53,7 @@
             this.createFileButton = new System.Windows.Forms.Button();
             this.endTimeCheckBox = new System.Windows.Forms.CheckBox();
             this.timeElapsedCheckBox = new System.Windows.Forms.CheckBox();
+            this.openFileButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.endTimeBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -133,7 +134,7 @@
             this.initializeButton.TabIndex = 12;
             this.initializeButton.Text = "Initialize";
             this.initializeButton.UseVisualStyleBackColor = true;
-            this.initializeButton.Click += new System.EventHandler(this.initializeButton_Click);
+            this.initializeButton.Click += new System.EventHandler(this.InitializeButton_Click);
             // 
             // stateTextBox
             // 
@@ -169,7 +170,7 @@
             0,
             0,
             0});
-            this.endTimeBox.ValueChanged += new System.EventHandler(this.endTimeBox_ValueChanged);
+            this.endTimeBox.ValueChanged += new System.EventHandler(this.EndTimeBox_ValueChanged);
             // 
             // smallImageTextBox
             // 
@@ -270,7 +271,7 @@
             this.updateButton.TabIndex = 25;
             this.updateButton.Text = "Update";
             this.updateButton.UseVisualStyleBackColor = true;
-            this.updateButton.Click += new System.EventHandler(this.updateButton_Click);
+            this.updateButton.Click += new System.EventHandler(this.UpdateButton_Click);
             // 
             // createFileButton
             // 
@@ -280,7 +281,7 @@
             this.createFileButton.TabIndex = 26;
             this.createFileButton.Text = "Create File";
             this.createFileButton.UseVisualStyleBackColor = true;
-            this.createFileButton.Click += new System.EventHandler(this.createFileButton_Click);
+            this.createFileButton.Click += new System.EventHandler(this.CreateFileButton_Click);
             // 
             // endTimeCheckBox
             // 
@@ -293,7 +294,7 @@
             this.endTimeCheckBox.TabIndex = 27;
             this.endTimeCheckBox.Text = "End Time";
             this.endTimeCheckBox.UseVisualStyleBackColor = true;
-            this.endTimeCheckBox.CheckedChanged += new System.EventHandler(this.endTimeCheckBox_CheckedChanged);
+            this.endTimeCheckBox.CheckedChanged += new System.EventHandler(this.EndTimeCheckBox_CheckedChanged);
             // 
             // timeElapsedCheckBox
             // 
@@ -304,13 +305,25 @@
             this.timeElapsedCheckBox.TabIndex = 28;
             this.timeElapsedCheckBox.Text = "Time Elapsed";
             this.timeElapsedCheckBox.UseVisualStyleBackColor = true;
-            this.timeElapsedCheckBox.CheckedChanged += new System.EventHandler(this.timeElapsedCheckBox_CheckedChanged);
+            this.timeElapsedCheckBox.CheckedChanged += new System.EventHandler(this.TimeElapsedCheckBox_CheckedChanged);
+            // 
+            // openFileButton
+            // 
+            this.openFileButton.Location = new System.Drawing.Point(12, 409);
+            this.openFileButton.Name = "openFileButton";
+            this.openFileButton.Size = new System.Drawing.Size(75, 23);
+            this.openFileButton.TabIndex = 29;
+            this.openFileButton.Text = "Open File";
+            this.openFileButton.UseVisualStyleBackColor = true;
+            this.openFileButton.Click += new System.EventHandler(this.OpenFileButton_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(292, 415);
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.ClientSize = new System.Drawing.Size(292, 454);
+            this.Controls.Add(this.openFileButton);
             this.Controls.Add(this.timeElapsedCheckBox);
             this.Controls.Add(this.endTimeCheckBox);
             this.Controls.Add(this.createFileButton);
@@ -338,6 +351,7 @@
             this.Controls.Add(this.detailsTextBox);
             this.Name = "Form1";
             this.Text = "DRP Modifier!";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.endTimeBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -371,6 +385,7 @@
         private System.Windows.Forms.Button createFileButton;
         private System.Windows.Forms.CheckBox endTimeCheckBox;
         private System.Windows.Forms.CheckBox timeElapsedCheckBox;
+        private System.Windows.Forms.Button openFileButton;
     }
 }
 

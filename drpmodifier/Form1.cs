@@ -1,13 +1,6 @@
 ﻿using DiscordRPC;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace drpmodifier
@@ -20,10 +13,9 @@ namespace drpmodifier
         public Form1()
         {
             InitializeComponent();
-            CheckFile();
         }
 
-        private void initializeButton_Click(object sender, EventArgs e)
+        private void InitializeButton_Click(object sender, EventArgs e)
         {
             CheckBoxes();
             Initalize();
@@ -44,9 +36,6 @@ namespace drpmodifier
             };
             client.Initialize();
             ChangePresence();
-            var timer = new System.Timers.Timer(150);
-            timer.Elapsed += (sender, args) => { client.Invoke(); };
-            timer.Start();
             initializeButton.Enabled = false;
         }
 
@@ -66,7 +55,6 @@ namespace drpmodifier
             DateTime utcTime = DateTime.UtcNow;
             gameTime = DateTime.UtcNow.AddSeconds(Convert.ToDouble(endTimeBox.Value));
             TimeSpan elapseTime = gameTime - utcTime;
-
             client.SetPresence(new RichPresence()
             {
                 Details = detailsTextBox.Text,
@@ -91,15 +79,17 @@ namespace drpmodifier
                 Timestamps = timeElapsedCheckBox.Checked ? Timestamps.Now : Timestamps.FromTimeSpan(elapseTime)
 
             });
+            client.Invoke();
         }
 
-        private void endTimeBox_ValueChanged(object sender, EventArgs e)
+
+        private void EndTimeBox_ValueChanged(object sender, EventArgs e)
         {
         }
 
-        private void CheckFile()
+        private void CheckFile(string dir)
         {
-            if(File.Exists(Environment.CurrentDirectory + @"\.env"))
+            if(File.Exists(dir))
             {
                 DotNetEnv.Env.Load();
                 MessageBox.Show("Importing saved values!");
@@ -128,26 +118,49 @@ namespace drpmodifier
             }
         }
 
-        private void updateButton_Click(object sender, EventArgs e)
+        private void UpdateButton_Click(object sender, EventArgs e)
         {
             CheckBoxes();
             ChangePresence();
         }
 
-        private void createFileButton_Click(object sender, EventArgs e)
+        private void CreateFileButton_Click(object sender, EventArgs e)
         {
             CreateFile();
         }
 
-        private void timeElapsedCheckBox_CheckedChanged(object sender, EventArgs e)
+        private void TimeElapsedCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             endTimeCheckBox.Checked = timeElapsedCheckBox.Checked ? false : true;
             endTimeBox.Enabled = timeElapsedCheckBox.Checked ? false : true;
         }
 
-        private void endTimeCheckBox_CheckedChanged(object sender, EventArgs e)
+        private void EndTimeCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             timeElapsedCheckBox.Checked = endTimeCheckBox.Checked ? false : true;
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            CheckFile(Environment.CurrentDirectory + @"\.env");
+        }
+
+        private void OpenFileButton_Click(object sender, EventArgs e)
+        {
+            var fileContent = string.Empty;
+            var filePath = string.Empty;
+
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.InitialDirectory = Environment.CurrentDirectory;
+                openFileDialog.Filter = "env files (*.env,env)|env;*.env;";
+                openFileDialog.RestoreDirectory = true;
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    CheckFile(openFileDialog.FileName);
+                }
+            }
         }
     }
 }
