@@ -159,6 +159,7 @@ namespace drpmodifier
                 openFileDialog.InitialDirectory = Environment.CurrentDirectory;
                 openFileDialog.Filter = "env files (*.env,env)|env;*.env;";
                 openFileDialog.RestoreDirectory = true;
+                openFileDialog.Multiselect = false;
 
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
