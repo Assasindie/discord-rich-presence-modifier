@@ -54,6 +54,8 @@
             this.endTimeCheckBox = new System.Windows.Forms.CheckBox();
             this.timeElapsedCheckBox = new System.Windows.Forms.CheckBox();
             this.openFileButton = new System.Windows.Forms.Button();
+            this.fileNameTextBox = new System.Windows.Forms.RichTextBox();
+            this.fileNameLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.endTimeBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -170,7 +172,6 @@
             0,
             0,
             0});
-            this.endTimeBox.ValueChanged += new System.EventHandler(this.EndTimeBox_ValueChanged);
             // 
             // smallImageTextBox
             // 
@@ -275,7 +276,7 @@
             // 
             // createFileButton
             // 
-            this.createFileButton.Location = new System.Drawing.Point(173, 380);
+            this.createFileButton.Location = new System.Drawing.Point(200, 409);
             this.createFileButton.Name = "createFileButton";
             this.createFileButton.Size = new System.Drawing.Size(75, 23);
             this.createFileButton.TabIndex = 26;
@@ -309,7 +310,7 @@
             // 
             // openFileButton
             // 
-            this.openFileButton.Location = new System.Drawing.Point(12, 409);
+            this.openFileButton.Location = new System.Drawing.Point(171, 380);
             this.openFileButton.Name = "openFileButton";
             this.openFileButton.Size = new System.Drawing.Size(75, 23);
             this.openFileButton.TabIndex = 29;
@@ -317,12 +318,31 @@
             this.openFileButton.UseVisualStyleBackColor = true;
             this.openFileButton.Click += new System.EventHandler(this.OpenFileButton_Click);
             // 
+            // fileNameTextBox
+            // 
+            this.fileNameTextBox.Location = new System.Drawing.Point(72, 409);
+            this.fileNameTextBox.Name = "fileNameTextBox";
+            this.fileNameTextBox.Size = new System.Drawing.Size(122, 27);
+            this.fileNameTextBox.TabIndex = 30;
+            this.fileNameTextBox.Text = " ";
+            // 
+            // fileNameLabel
+            // 
+            this.fileNameLabel.AutoSize = true;
+            this.fileNameLabel.Location = new System.Drawing.Point(12, 414);
+            this.fileNameLabel.Name = "fileNameLabel";
+            this.fileNameLabel.Size = new System.Drawing.Size(54, 13);
+            this.fileNameLabel.TabIndex = 31;
+            this.fileNameLabel.Text = "File Name";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(292, 454);
+            this.Controls.Add(this.fileNameLabel);
+            this.Controls.Add(this.fileNameTextBox);
             this.Controls.Add(this.openFileButton);
             this.Controls.Add(this.timeElapsedCheckBox);
             this.Controls.Add(this.endTimeCheckBox);
@@ -386,6 +406,8 @@
         private System.Windows.Forms.CheckBox endTimeCheckBox;
         private System.Windows.Forms.CheckBox timeElapsedCheckBox;
         private System.Windows.Forms.Button openFileButton;
+        private System.Windows.Forms.RichTextBox fileNameTextBox;
+        private System.Windows.Forms.Label fileNameLabel;
     }
 }
 

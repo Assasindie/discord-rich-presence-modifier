@@ -21,6 +21,7 @@ namespace drpmodifier
             Initalize();
             updateButton.Enabled = true;
         }
+
         void Initalize()
         {
             client = new DiscordRpcClient(clientIDTextBox.Text, true);
@@ -43,7 +44,7 @@ namespace drpmodifier
         {
             foreach (Control c in Controls)
             {
-                if(c.Text.Length <= 1)
+                if(c.Text.Length <= 1 && c.Name != "fileNameTextBox")
                 {
                     MessageBox.Show("All fields must contain at least 2 characters!");
                 }
@@ -82,17 +83,11 @@ namespace drpmodifier
             client.Invoke();
         }
 
-
-        private void EndTimeBox_ValueChanged(object sender, EventArgs e)
-        {
-        }
-
         private void CheckFile(string dir)
         {
             if(File.Exists(dir))
             {
-                DotNetEnv.Env.Load();
-                MessageBox.Show("Importing saved values!");
+                DotNetEnv.Env.Load(dir);
                 foreach (Control c in Controls)
                 {
                     if (c is RichTextBox || c is NumericUpDown)
@@ -100,21 +95,30 @@ namespace drpmodifier
                         c.Text = Environment.GetEnvironmentVariable(c.Name.ToUpper());
                     }
                 }
+                MessageBox.Show("Imported saved values!");
             }
         }
 
-        private void CreateFile()
+        private void CreateFile(string fileName)
         {
-            string path = Environment.CurrentDirectory + @"\.env";
-            using (StreamWriter sw = File.CreateText(path))
+            string path = Environment.CurrentDirectory + @"\" + fileName + ".env";
+            try
             {
-                foreach (Control c in Controls)
+                using (StreamWriter sw = File.CreateText(path))
                 {
-                    if (c is RichTextBox || c is NumericUpDown)
+                    foreach (Control c in Controls)
                     {
-                        sw.WriteLine(c.Name.ToUpper() + "=" + c.Text);
+                        if (c is RichTextBox || c is NumericUpDown)
+                        {
+                            sw.WriteLine(c.Name.ToUpper() + "=" + c.Text);
+                        }
                     }
                 }
+                MessageBox.Show("Made file of current values");
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Something went wrong! " + e.Message);
             }
         }
 
@@ -126,7 +130,7 @@ namespace drpmodifier
 
         private void CreateFileButton_Click(object sender, EventArgs e)
         {
-            CreateFile();
+            CreateFile(fileNameTextBox.Text);
         }
 
         private void TimeElapsedCheckBox_CheckedChanged(object sender, EventArgs e)
