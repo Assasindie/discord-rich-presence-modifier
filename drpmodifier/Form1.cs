@@ -9,7 +9,7 @@ namespace drpmodifier
     {
         public DiscordRpcClient client;
         public DateTime gameTime;
-        public string clientID = ""; 
+        public bool initialised = false;
 
         public Form1()
         {
@@ -25,31 +25,31 @@ namespace drpmodifier
 
         void Initalize()
         {
-            if(clientID != clientIDTextBox.Text && clientID != "")
+            if(initialised && clientIDTextBox.Text != "")
             {
                 //temporarily shuts down the rich presence to set a new one up with a different ID
                 client.ShutdownOnly = true;
                 client.DequeueAll();
                 client.ClearPresence();
                 client.Dispose();
-                clientID = clientIDTextBox.Text;
             }
 
             client = new DiscordRpcClient(clientIDTextBox.Text, true);
 
             client.OnReady += (sender, e) =>
             {
-                MessageBox.Show("Started with user " + e.User.Username);
-                clientID = clientIDTextBox.Text;
+
             };
 
             client.OnPresenceUpdate += (sender, e) =>
             {
                 MessageBox.Show("Updated Presence");
             };
+            
             client.Initialize();
             ChangePresence();
             client.Invoke();
+            initialised = true;
         }
 
         public void CheckBoxes()
@@ -107,7 +107,6 @@ namespace drpmodifier
                         c.Text = Environment.GetEnvironmentVariable(c.Name.ToUpper());
                     }
                 }
-                MessageBox.Show("Imported saved values!");
             }
         }
 
