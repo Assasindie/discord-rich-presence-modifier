@@ -9,6 +9,7 @@ namespace drpmodifier
     {
         public DiscordRpcClient client;
         public DateTime gameTime;
+        public string clientID = ""; 
 
         public Form1()
         {
@@ -24,20 +25,31 @@ namespace drpmodifier
 
         void Initalize()
         {
+            if(clientID != clientIDTextBox.Text && clientID != "")
+            {
+                //temporarily shuts down the rich presence to set a new one up with a different ID
+                client.ShutdownOnly = true;
+                client.DequeueAll();
+                client.ClearPresence();
+                client.Dispose();
+                clientID = clientIDTextBox.Text;
+            }
+
             client = new DiscordRpcClient(clientIDTextBox.Text, true);
 
             client.OnReady += (sender, e) =>
             {
                 MessageBox.Show("Started with user " + e.User.Username);
+                clientID = clientIDTextBox.Text;
             };
 
             client.OnPresenceUpdate += (sender, e) =>
             {
-                
+                MessageBox.Show("Updated Presence");
             };
             client.Initialize();
             ChangePresence();
-            initializeButton.Enabled = false;
+            client.Invoke();
         }
 
         public void CheckBoxes()
