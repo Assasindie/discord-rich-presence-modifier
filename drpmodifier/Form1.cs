@@ -27,29 +27,44 @@ namespace drpmodifier
         {
             if(initialised && clientIDTextBox.Text != "")
             {
-                //temporarily shuts down the rich presence to set a new one up with a different ID
-                client.ShutdownOnly = true;
-                client.DequeueAll();
-                client.ClearPresence();
-                client.Dispose();
+                ShutDown();
             }
 
             client = new DiscordRpcClient(clientIDTextBox.Text, true);
+
+            client.OnError += (sender, e) =>
+            {
+                MessageBox.Show("Error");
+            };
 
             client.OnReady += (sender, e) =>
             {
 
             };
 
+            client.OnConnectionFailed += (sender, e) =>
+            {
+                MessageBox.Show("Connection Failed");
+            };
+
             client.OnPresenceUpdate += (sender, e) =>
             {
                 MessageBox.Show("Updated Presence");
             };
-            
+
             client.Initialize();
             ChangePresence();
             client.Invoke();
             initialised = true;
+        }
+
+        public void ShutDown()
+        {
+            //temporarily shuts down the rich presence to set a new one up with a different ID
+            client.ShutdownOnly = true;
+            client.DequeueAll();
+            client.ClearPresence();
+            client.Dispose();
         }
 
         public void CheckBoxes()
@@ -177,6 +192,15 @@ namespace drpmodifier
                     CheckFile(openFileDialog.FileName);
                 }
             }
+        }
+
+        private void StopPresenceButton_Click(object sender, EventArgs e)
+        {
+            if(initialised == true)
+            {
+                ShutDown();
+                initialised = false;
+            }           
         }
     }
 }

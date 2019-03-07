@@ -56,6 +56,7 @@
             this.openFileButton = new System.Windows.Forms.Button();
             this.fileNameTextBox = new System.Windows.Forms.RichTextBox();
             this.fileNameLabel = new System.Windows.Forms.Label();
+            this.stopPresenceButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.endTimeBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -335,12 +336,23 @@
             this.fileNameLabel.TabIndex = 31;
             this.fileNameLabel.Text = "File Name";
             // 
+            // stopPresenceButton
+            // 
+            this.stopPresenceButton.Location = new System.Drawing.Point(9, 447);
+            this.stopPresenceButton.Name = "stopPresenceButton";
+            this.stopPresenceButton.Size = new System.Drawing.Size(260, 23);
+            this.stopPresenceButton.TabIndex = 32;
+            this.stopPresenceButton.Text = "Stop Presence";
+            this.stopPresenceButton.UseVisualStyleBackColor = true;
+            this.stopPresenceButton.Click += new System.EventHandler(this.StopPresenceButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(292, 454);
+            this.ClientSize = new System.Drawing.Size(292, 482);
+            this.Controls.Add(this.stopPresenceButton);
             this.Controls.Add(this.fileNameLabel);
             this.Controls.Add(this.fileNameTextBox);
             this.Controls.Add(this.openFileButton);
@@ -408,6 +420,7 @@
         private System.Windows.Forms.Button openFileButton;
         private System.Windows.Forms.RichTextBox fileNameTextBox;
         private System.Windows.Forms.Label fileNameLabel;
+        private System.Windows.Forms.Button stopPresenceButton;
     }
 }
 
