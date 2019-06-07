@@ -57,6 +57,7 @@
             this.fileNameTextBox = new System.Windows.Forms.RichTextBox();
             this.fileNameLabel = new System.Windows.Forms.Label();
             this.stopPresenceButton = new System.Windows.Forms.Button();
+            this.previewButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.endTimeBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -346,12 +347,23 @@
             this.stopPresenceButton.UseVisualStyleBackColor = true;
             this.stopPresenceButton.Click += new System.EventHandler(this.StopPresenceButton_Click);
             // 
+            // previewButton
+            // 
+            this.previewButton.Location = new System.Drawing.Point(11, 477);
+            this.previewButton.Name = "previewButton";
+            this.previewButton.Size = new System.Drawing.Size(258, 23);
+            this.previewButton.TabIndex = 33;
+            this.previewButton.Text = "Preview";
+            this.previewButton.UseVisualStyleBackColor = true;
+            this.previewButton.Click += new System.EventHandler(this.previewButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(292, 482);
+            this.ClientSize = new System.Drawing.Size(293, 519);
+            this.Controls.Add(this.previewButton);
             this.Controls.Add(this.stopPresenceButton);
             this.Controls.Add(this.fileNameLabel);
             this.Controls.Add(this.fileNameTextBox);
@@ -421,6 +433,7 @@
         private System.Windows.Forms.RichTextBox fileNameTextBox;
         private System.Windows.Forms.Label fileNameLabel;
         private System.Windows.Forms.Button stopPresenceButton;
+        private System.Windows.Forms.Button previewButton;
     }
 }
 

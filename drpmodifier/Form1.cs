@@ -7,10 +7,10 @@ namespace drpmodifier
 {
     public partial class Form1 : Form
     {
-        public DiscordRpcClient client;
-        public DateTime gameTime;
-        public bool initialised = false;
-
+        private DiscordRpcClient client;
+        private DateTime gameTime;
+        private bool initialised = false;
+        private Form2 f2;
         public Form1()
         {
             InitializeComponent();
@@ -18,9 +18,11 @@ namespace drpmodifier
 
         private void InitializeButton_Click(object sender, EventArgs e)
         {
-            CheckBoxes();
-            Initalize();
-            updateButton.Enabled = true;
+            if (CheckBoxes())
+            {
+                Initalize();
+                updateButton.Enabled = true;
+            }
         }
 
         void Initalize()
@@ -67,15 +69,17 @@ namespace drpmodifier
             client.Dispose();
         }
 
-        public void CheckBoxes()
+        public bool CheckBoxes()
         {
             foreach (Control c in Controls)
             {
                 if(c.Text.Length <= 1 && c.Name != "fileNameTextBox")
                 {
                     MessageBox.Show("All fields must contain at least 2 characters!");
+                    return false;
                 }
             }
+            return true;
         }
 
         public void ChangePresence()
@@ -150,8 +154,10 @@ namespace drpmodifier
 
         private void UpdateButton_Click(object sender, EventArgs e)
         {
-            CheckBoxes();
-            ChangePresence();
+            if (CheckBoxes())
+            {
+                ChangePresence();
+            }
         }
 
         private void CreateFileButton_Click(object sender, EventArgs e)
@@ -201,6 +207,12 @@ namespace drpmodifier
                 ShutDown();
                 initialised = false;
             }           
+        }
+
+        private void previewButton_Click(object sender, EventArgs e)
+        {
+            f2 = new Form2(stateTextBox.Text, detailsTextBox.Text, timeElapsedCheckBox.Checked);
+            f2.Show();
         }
     }
 }
