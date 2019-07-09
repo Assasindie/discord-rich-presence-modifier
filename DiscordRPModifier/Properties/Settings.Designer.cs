@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace drpmodifier.Properties
+namespace DiscordRPModifier.Properties
 {
 
 
