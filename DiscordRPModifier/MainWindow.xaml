@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:DiscordRPModifier"
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         mc:Ignorable="d"
-        Title="DRPmodifier" Height="389.741" Width="305.611" Background="#FF1E1E1E" Loaded="Window_Loaded">
+        Title="DRPmodifier" Height="389.741" Width="305.611" Background="#FF1E1E1E">
     <Grid Name="MainGrid">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="46"/>
@@ -18,8 +18,8 @@
                 <Grid Name ="DetailsGrid" Background="#FF1E1E1E" Margin="0,0,0,81.641" HorizontalAlignment="Left" Width="297.443">
                     <TextBox Name="DetailsTextBox" HorizontalAlignment="Left" Height="22.246" Margin="10,10,0,0" VerticalAlignment="Top" Width="142.764" Text="Details"/>
                     <TextBox Name="StateTextBox" HorizontalAlignment="Left" Height="22.246" Margin="10,37.246,0,0" VerticalAlignment="Top" Width="142.764" Text="State"/>
-                    <CheckBox Name="EndTimeCheckBox" Content="End Time" HorizontalAlignment="Left" Margin="10,78.277,0,0" VerticalAlignment="Top" Foreground="White" Click="EndTimeCheckBox_Click"/>
-                    <CheckBox Name="TimeElapsedCheckBox" Content="Time Elapsed" HorizontalAlignment="Left" Margin="100.28,78.277,0,0" VerticalAlignment="Top" Foreground="White" Click="TimeElapsedCheckBox_Click" IsChecked="True"/>
+                    <CheckBox Name="EndTimeCheckBox" Content="End Time" HorizontalAlignment="Left" Margin="10,78.277,0,0" VerticalAlignment="Top" Foreground="White" Click="EndTimeCheckBox_Click" IsChecked="True"/>
+                    <CheckBox Name="TimeElapsedCheckBox" Content="Time Elapsed" HorizontalAlignment="Left" Margin="100.28,78.277,0,0" VerticalAlignment="Top" Foreground="White" Click="TimeElapsedCheckBox_Click"/>
                     <xctk:IntegerUpDown Name="EndTimeBox" Margin="10,106.789,144.679,208.114" Value="100000" />
                     <TextBox Name="LargeImageTextBox" HorizontalAlignment="Left" Height="22.246" Margin="10,133.499,0,0" VerticalAlignment="Top" Width="142.764" Text="Large Image Text"/>
                     <TextBox Name="LargeImageKeyTextBox" HorizontalAlignment="Left" Height="22.246" Margin="10,160.745,0,0" VerticalAlignment="Top" Width="142.764" Text = "Large Image Key"/>
@@ -75,7 +75,11 @@
                         <ColumnDefinition Width="77*"/>
                         <ColumnDefinition Width="221*"/>
                     </Grid.ColumnDefinitions>
-                    <CheckBox Name="LightThemeCheckBox" Content="Light Mode" HorizontalAlignment="Left" Height="23.04" Margin="10,10,0,0" VerticalAlignment="Top" Width="88.918" Foreground="White" Grid.ColumnSpan="2" Click="LightThemeCheckBox_Click"/>
+                    <CheckBox Name="LightThemeCheckBox" Content="Light Mode" HorizontalAlignment="Left" Height="23" Margin="11,10,0,0" VerticalAlignment="Top" Width="89" Foreground="White" Grid.ColumnSpan="2" Click="LightThemeCheckBox_Click"/>
+                    <CheckBox Name="StartupCheckBox" Content="Launch on Startup" HorizontalAlignment="Left" Margin="11,33,0,0" VerticalAlignment="Top" Background="White" Foreground="White" Grid.ColumnSpan="2" Width="142" Click="StartupCheckBox_Click"/>
+                    <TextBox Name="StartPresetTextBox" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="24" Margin="11,54,0,0" TextWrapping="Wrap" Text="Preset Name" VerticalAlignment="Top" Width="120" Background="#FF1E1E1E" Foreground="White"/>
+                    <Label Content="Preset to launch on start" Grid.Column="1" HorizontalAlignment="Left" Margin="43,52,0,0" VerticalAlignment="Top" Width="160" Foreground="White"/>
+                    <Button Name="SaveSettingsButton" Content="Save Settings" HorizontalAlignment="Left" Margin="11,83,0,0" VerticalAlignment="Top" Width="89" Grid.ColumnSpan="2" Click="SaveSettingsButton_Click"/>
                 </Grid>
             </TabItem>
         </TabControl>

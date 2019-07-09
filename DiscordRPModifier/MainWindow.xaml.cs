@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Media;
 using DiscordRPC;
 using Microsoft.Win32;
+using Newtonsoft.Json;
 using Xceed.Wpf.Toolkit;
 using MessageBox = Xceed.Wpf.Toolkit.MessageBox;
 
@@ -21,6 +23,8 @@ namespace DiscordRPModifier
         private DiscordRpcClient client;
         private DateTime gameTime;
         private bool initialised = false;
+        private Settings settings;
+        public static readonly RegistryKey RegKey = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
 
         #region Theme Change Variable get/set
         bool DarkMode = true;
@@ -61,12 +65,45 @@ namespace DiscordRPModifier
             InitializeComponent();
             DataContext = this;
             SetBindings();
+            LoadSettings();
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+        #region Settings
+        private void LoadSettings()
         {
-            CheckFile(Environment.CurrentDirectory + @"\Presets\NoAnime.env");
+            //loads the settings from settings.json
+            if (File.Exists(Environment.CurrentDirectory + @"\settings.json"))
+            {
+                string json;
+                using (StreamReader sr = File.OpenText(Environment.CurrentDirectory + @"\settings.json"))
+                {
+                    json = sr.ReadToEnd();
+                }
+                settings = JsonConvert.DeserializeObject<Settings>(json);
+                if (settings.StartPreset != null)
+                {
+                    CheckFile(Environment.CurrentDirectory + @"\Presets\" + settings.StartPreset + ".env");
+                    StartPresetTextBox.Text = settings.StartPreset;
+                }
+                LightThemeCheckBox.IsChecked = settings.DarkMode ? false : true;
+                DarkMode = settings.DarkMode;
+                ChangeTheme();
+            }
+            StartupCheckBox.IsChecked = RegKey.GetValueNames().Contains("DRPmodifier") ? true : false;
         }
+
+        private void WriteSettings()
+        {
+            settings.StartPreset = StartPresetTextBox.Text;
+            settings.DarkMode = DarkMode;
+            string json = JsonConvert.SerializeObject(settings);
+            using (StreamWriter sw = File.CreateText(Environment.CurrentDirectory + @"\settings.json"))
+            {
+                sw.Write(json);
+            }
+            MessageBox.Show("Saved Settings!");
+        }
+        #endregion
 
         #region File Functions
         private void CheckFile(string dir)
@@ -83,6 +120,7 @@ namespace DiscordRPModifier
                 {
                     i.Value = int.Parse(Environment.GetEnvironmentVariable(i.Name.ToUpper()));
                 }
+                FileNameTextBox.Text = Environment.GetEnvironmentVariable("FILENAMETEXTBOX");
             }
         }
 
@@ -252,6 +290,12 @@ namespace DiscordRPModifier
                 }
             }
         }
+
+        private void ChangeTheme()
+        {
+            CurrentBackground = DarkMode ? "#FF343A40" : "#FFE5E5E5";
+            CurrentForeground = DarkMode ? "White" : "Black";
+        }
         #endregion
 
         #region INotifyPropertyChanged Implementation
@@ -285,8 +329,7 @@ namespace DiscordRPModifier
         {
 
             DarkMode = !LightThemeCheckBox.IsChecked.Value;
-            CurrentBackground = DarkMode ? "#FF343A40" : "#FFE5E5E5";
-            CurrentForeground = DarkMode ? "White" : "Black";
+            ChangeTheme();
         }
         #endregion
 
@@ -349,6 +392,22 @@ namespace DiscordRPModifier
         {
             Preview prev = new Preview(StateTextBox.Text, DetailsTextBox.Text, TimeElapsedCheckBox.IsChecked.Value);
             prev.Show();
+        }
+
+        private void StartupCheckBox_Click(object sender, RoutedEventArgs e)
+        {
+            if(StartupCheckBox.IsChecked.Value == true)
+            {
+                Settings.AddToRegistry();
+            }else
+            {
+                Settings.DeleteFromRegistery();
+            }
+        }
+
+        private void SaveSettingsButton_Click(object sender, RoutedEventArgs e)
+        {
+            WriteSettings();
         }
 
         #endregion
