@@ -30,7 +30,7 @@
                     <TextBox Name="ClientIDTextBox" HorizontalAlignment="Left" Height="22.246" Margin="10,296.975,0,0" VerticalAlignment="Top" Width="142.764" Text="Client ID"/>
                     <Label Content="Details" HorizontalAlignment="Left" Margin="165,10,0,0" VerticalAlignment="Top" Height="22.246" Foreground="White" FontSize="11"/>
                     <Label Content="State" HorizontalAlignment="Left" Margin="165,34.326,0,0" VerticalAlignment="Top" Height="22.246" Foreground="White" FontSize="11"/>
-                    <Label Content="End Time" HorizontalAlignment="Left" Margin="166.397,106.789,0,0" VerticalAlignment="Top" Height="22.246" Foreground="White" FontSize="11"/>
+                    <Label Content="End Time in seconds" HorizontalAlignment="Left" Margin="166,107,0,0" VerticalAlignment="Top" Height="22" Foreground="White" FontSize="11" Width="116"/>
                     <Label Content="Large Image Text" HorizontalAlignment="Left" Margin="166.397,132.579,0,0" VerticalAlignment="Top" Height="25.166" Foreground="White" FontSize="11"/>
                     <Label Content="Large Image Key" HorizontalAlignment="Left" Margin="166.397,159.745,0,0" VerticalAlignment="Top" Height="25.166" Foreground="White" FontSize="11"/>
                     <Label Content="Small Image Text" HorizontalAlignment="Left" Margin="166.397,186.911,0,0" VerticalAlignment="Top" Height="25.166" Foreground="White" FontSize="11"/>
