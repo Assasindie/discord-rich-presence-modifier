@@ -1,17 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.IO;
-using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
-using System.Windows.Media;
-using DiscordRPC;
+using DiscordRPModifier.Handlers;
 using Microsoft.Win32;
-using Newtonsoft.Json;
-using Xceed.Wpf.Toolkit;
-using MessageBox = Xceed.Wpf.Toolkit.MessageBox;
 
 namespace DiscordRPModifier
 {
@@ -20,14 +13,8 @@ namespace DiscordRPModifier
     /// </summary>
     public partial class MainWindow : Window, INotifyPropertyChanged
     {
-        private DiscordRpcClient client;
-        private DateTime gameTime;
-        private bool initialised = false;
-        private Settings settings;
-        public static readonly RegistryKey RegKey = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
-
         #region Theme Change Variable get/set
-        bool DarkMode = true;
+        public bool DarkMode = true;
         //Foreground color get/set
         private string _CurrentForeground = "White";
         public string CurrentForeground
@@ -65,202 +52,8 @@ namespace DiscordRPModifier
             InitializeComponent();
             DataContext = this;
             SetBindings();
-            LoadSettings();
+            SettingsHandler.LoadSettings(this);
         }
-
-        #region Settings
-        private void LoadSettings()
-        {
-            //loads the settings from settings.json
-            if (File.Exists(Environment.CurrentDirectory + @"\settings.json"))
-            {
-                string json;
-                using (StreamReader sr = File.OpenText(Environment.CurrentDirectory + @"\settings.json"))
-                {
-                    json = sr.ReadToEnd();
-                }
-                settings = JsonConvert.DeserializeObject<Settings>(json);
-                if (settings.StartPreset != null)
-                {
-                    CheckFile(Environment.CurrentDirectory + @"\Presets\" + settings.StartPreset + ".env");
-                    StartPresetTextBox.Text = settings.StartPreset;
-                }
-                LightThemeCheckBox.IsChecked = settings.DarkMode ? false : true;
-                DarkMode = settings.DarkMode;
-                ChangeTheme();
-            }
-            StartupCheckBox.IsChecked = RegKey.GetValueNames().Contains("DRPmodifier") ? true : false;
-        }
-
-        private void WriteSettings()
-        {
-            settings.StartPreset = StartPresetTextBox.Text;
-            settings.DarkMode = DarkMode;
-            string json = JsonConvert.SerializeObject(settings);
-            using (StreamWriter sw = File.CreateText(Environment.CurrentDirectory + @"\settings.json"))
-            {
-                sw.Write(json);
-            }
-            MessageBox.Show("Saved Settings!");
-        }
-        #endregion
-
-        #region File Functions
-        private void CheckFile(string dir)
-        {
-            if (File.Exists(dir))
-            {
-                DotNetEnv.Env.Load(dir);
-
-                foreach (TextBox t in FindVisualChildren<TextBox>(DetailsGrid))
-                {
-                    t.Text = Environment.GetEnvironmentVariable(t.Name.ToUpper());
-                }
-                foreach (IntegerUpDown i in FindVisualChildren<IntegerUpDown>(DetailsGrid))
-                {
-                    i.Value = int.Parse(Environment.GetEnvironmentVariable(i.Name.ToUpper()));
-                }
-                FileNameTextBox.Text = Environment.GetEnvironmentVariable("FILENAMETEXTBOX");
-            }
-        }
-
-        private void CreateFile(string fileName)
-        {
-            string path = Environment.CurrentDirectory + @"\Presets\" + fileName + ".env";
-            try
-            {
-                using (StreamWriter sw = File.CreateText(path))
-                {
-                    foreach (TextBox t in FindVisualChildren<TextBox>(DetailsGrid))
-                    {
-                        sw.WriteLine(t.Name.ToUpper() + "=" + t.Text);
-                    }
-                    foreach (IntegerUpDown i in FindVisualChildren<IntegerUpDown>(DetailsGrid))
-                    {
-                        sw.WriteLine(i.Name.ToUpper() + "=" + i.Value);
-                    }
-                }
-                MessageBox.Show("Made file of current values");
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show("Something went wrong! " + e.Message);
-            }
-        }
-        #endregion
-
-        #region Field Checks
-        //function for finding what type of control it is.
-        public static IEnumerable<T> FindVisualChildren<T>(DependencyObject depObj) where T : DependencyObject
-        {
-            if (depObj != null)
-            {
-                for (int i = 0; i < VisualTreeHelper.GetChildrenCount(depObj); i++)
-                {
-                    DependencyObject child = VisualTreeHelper.GetChild(depObj, i);
-                    if (child != null && child is T)
-                    {
-                        yield return (T)child;
-                    }
-
-                    foreach (T childOfChild in FindVisualChildren<T>(child))
-                    {
-                        yield return childOfChild;
-                    }
-                }
-            }
-        }
-
-        public bool CheckBoxes()
-        {
-            foreach (TextBox t in FindVisualChildren<TextBox>(DetailsGrid))
-            {
-                //Part_TextBox is part of the IntegerUpAndDown and doesnt like this
-                if (t.Text.Length <= 1 && t.Name != "PART_TextBox")
-                {
-                    MessageBox.Show("All fields must contain at least 2 characters! " + t.Name);
-                    return false;
-                }
-            }
-            return true;
-        }
-        #endregion 
-
-        #region Rich Presence Functions
-        private void Initalize()
-        {
-            if (initialised && ClientIDTextBox.Text != "")
-            {
-                ShutDown();
-            }
-            //true maybe
-            client = new DiscordRpcClient(ClientIDTextBox.Text, true);
-
-            client.OnError += (sender, e) =>
-            {
-                MessageBox.Show("Error");
-            };
-
-            client.OnReady += (sender, e) =>
-            {
-
-            };
-
-            client.OnConnectionFailed += (sender, e) =>
-            {
-                MessageBox.Show("Connection Failed");
-            };
-
-            client.OnPresenceUpdate += (sender, e) =>
-            {
-                MessageBox.Show("Updated Presence");
-            };
-
-            client.Initialize();
-            ChangePresence();
-            client.Invoke();
-            initialised = true;
-        }
-
-        public void ShutDown()
-        {
-            //temporarily shuts down the rich presence to set a new one up with a different ID
-            client.ShutdownOnly = true;
-            client.ClearPresence();
-            client.Dispose();
-        }
-
-        public void ChangePresence()
-        {
-            DateTime utcTime = DateTime.UtcNow;
-            gameTime = DateTime.UtcNow.AddSeconds(Convert.ToDouble(EndTimeBox.Value));
-            TimeSpan elapseTime = gameTime - utcTime;
-            client.SetPresence(new RichPresence()
-            {
-                Details = DetailsTextBox.Text,
-                State = StateTextBox.Text,
-                Party = new Party()
-                {
-                    ID = PartyIDTextBox.Text,
-                    Max = 21,
-                    Size = 1,
-                },
-                Secrets = new Secrets()
-                {
-                    JoinSecret = JoinSecretTextBox.Text,
-                },
-                Assets = new Assets()
-                {
-                    LargeImageKey = LargeImageKeyTextBox.Text,
-                    LargeImageText = LargeImageTextBox.Text,
-                    SmallImageKey = SmallImageKeyTextBox.Text,
-                    SmallImageText = SmallImageTextBox.Text,
-                },
-                Timestamps = TimeElapsedCheckBox.IsChecked.Value ? Timestamps.Now : Timestamps.FromTimeSpan(elapseTime)
-            });
-            client.Invoke();
-        }
-        #endregion
 
         #region Theme Change bindings
         private void SetBindings()
@@ -291,7 +84,7 @@ namespace DiscordRPModifier
             }
         }
 
-        private void ChangeTheme()
+        public void ChangeTheme()
         {
             CurrentBackground = DarkMode ? "#FF343A40" : "#FFE5E5E5";
             CurrentForeground = DarkMode ? "White" : "Black";
@@ -336,27 +129,27 @@ namespace DiscordRPModifier
         #region Action Buttons
         private void StartButton_Click(object sender, RoutedEventArgs e)
         {
-            if (CheckBoxes())
+            if (CheckHandlers.CheckBoxes(this))
             {
-                Initalize();
+                RichPresenceHandler.Initalize(this);
                 UpdateButton.IsEnabled = true;
             }
         }
 
         private void UpdateButton_Click(object sender, RoutedEventArgs e)
         {
-            if (CheckBoxes())
+            if (CheckHandlers.CheckBoxes(this))
             {
-                ChangePresence();
+                RichPresenceHandler.ChangePresence(this);
             }
         }
 
         private void StopButton_Click(object sender, RoutedEventArgs e)
         {
-            if (initialised == true)
+            if (RichPresenceHandler.initialised == true)
             {
-                ShutDown();
-                initialised = false;
+                RichPresenceHandler.ShutDown();
+                RichPresenceHandler.initialised = false;
             }
         }
         #endregion
@@ -377,13 +170,13 @@ namespace DiscordRPModifier
 
             if (openFileDialog.ShowDialog() == true)
             {
-                CheckFile(openFileDialog.FileName);
+                FileHandler.CheckFile(this, openFileDialog.FileName);
             }
         }
 
         private void SaveFileButton_Click(object sender, RoutedEventArgs e)
         {
-            CreateFile(FileNameTextBox.Text);
+            FileHandler.CreateFile(this, FileNameTextBox.Text);
         }
 
         #endregion
@@ -396,18 +189,19 @@ namespace DiscordRPModifier
 
         private void StartupCheckBox_Click(object sender, RoutedEventArgs e)
         {
-            if(StartupCheckBox.IsChecked.Value == true)
+            if (StartupCheckBox.IsChecked.Value == true)
             {
-                Settings.AddToRegistry();
-            }else
+                SettingsHandler.AddToRegistry();
+            }
+            else
             {
-                Settings.DeleteFromRegistery();
+                SettingsHandler.DeleteFromRegistery();
             }
         }
 
         private void SaveSettingsButton_Click(object sender, RoutedEventArgs e)
         {
-            WriteSettings();
+            SettingsHandler.WriteSettings(this);
         }
 
         #endregion

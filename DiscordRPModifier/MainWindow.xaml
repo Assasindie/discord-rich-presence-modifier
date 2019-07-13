@@ -3,7 +3,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:DiscordRPModifier"
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         mc:Ignorable="d"
         Title="DRPmodifier" Height="389.741" Width="305.611" Background="#FF1E1E1E">
@@ -13,7 +12,7 @@
             <ColumnDefinition Width="211"/>
             <ColumnDefinition Width="Auto" MinWidth="46.123"/>
         </Grid.ColumnDefinitions>
-        <TabControl Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="446.214" VerticalAlignment="Top" Width="350.123" Margin="0,0,-47,-87.473">
+        <TabControl Name="MainTabControl" Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="446.214" VerticalAlignment="Top" Width="350.123" Margin="0,0,-47,-87.473">
             <TabItem Header="Details">
                 <Grid Name ="DetailsGrid" Background="#FF1E1E1E" Margin="0,0,0,81.641" HorizontalAlignment="Left" Width="297.443">
                     <TextBox Name="DetailsTextBox" HorizontalAlignment="Left" Height="22.246" Margin="10,10,0,0" VerticalAlignment="Top" Width="142.764" Text="Details"/>
@@ -49,7 +48,7 @@
                     </Grid.ColumnDefinitions>
                     <Button Name="StartButton" Content="Start" HorizontalAlignment="Left" Margin="17,10,0,0" VerticalAlignment="Top" Width="84" Height="85" Click="StartButton_Click" Grid.ColumnSpan="2">
                         <Button.Background>
-                            <ImageBrush ImageSource="startxd.png"/>
+                            <ImageBrush ImageSource="start.png"/>
                         </Button.Background>
                     </Button>
                     <Button Name="UpdateButton" Content="Update" HorizontalAlignment="Left" Margin="80.239,10,0,0" VerticalAlignment="Top" Width="84" Height="85" Foreground="White" Click="UpdateButton_Click" Grid.Column="1">

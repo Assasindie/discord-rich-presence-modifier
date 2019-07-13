@@ -121,7 +121,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Settings.cs" />
+    <Compile Include="Handlers\CheckHandlers.cs" />
+    <Compile Include="Handlers\FileHandler.cs" />
+    <Compile Include="Handlers\RichPresenceHandler.cs" />
+    <Compile Include="Handlers\SettingsHandler.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -170,7 +173,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="startxd.png" />
+    <Resource Include="start.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="update.png" />
