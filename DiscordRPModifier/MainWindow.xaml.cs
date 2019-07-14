@@ -204,7 +204,11 @@ namespace DiscordRPModifier
             SettingsHandler.WriteSettings(this);
         }
 
-        #endregion
+        private void UploadButton_Click(object sender, RoutedEventArgs e)
+        {
+            UploadHandler.UploadFile(this);
+        }
 
+        #endregion
     }
 }

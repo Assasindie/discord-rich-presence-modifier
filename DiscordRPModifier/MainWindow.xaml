@@ -66,6 +66,7 @@
                     <Label Content="File Name" HorizontalAlignment="Left" Margin="19,146,0,0" VerticalAlignment="Top" Foreground="White" Grid.ColumnSpan="2"/>
                     <TextBox Name ="FileNameTextBox" HorizontalAlignment="Left" Height="26" Margin="61.239,146,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="173" Grid.Column="1"/>
                     <Button Name="PreviewButton" Content="Preview" HorizontalAlignment="Left" Margin="17,265,0,0" VerticalAlignment="Top" Width="262" Height="43" Grid.ColumnSpan="2" Click="PreviewButton_Click"/>
+                    <Button Name="UploadButton" Content="Upload" Grid.Column="1" HorizontalAlignment="Left" Margin="10,231,0,0" VerticalAlignment="Top" Width="75" Click="UploadButton_Click"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Settings">
