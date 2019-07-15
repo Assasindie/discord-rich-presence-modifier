@@ -1,12 +1,12 @@
 ﻿using Newtonsoft.Json;
 using JsonRequest;
 using System.Windows;
+using System;
 
 namespace DiscordRPModifier.Handlers
 {
     class UploadHandler
     {
-        public static DRPenv env = new DRPenv();
         public class DRPenv
         {
             public string FILENAMETEXTBOX { get; set; }
@@ -21,6 +21,11 @@ namespace DiscordRPModifier.Handlers
             public string LARGEIMAGETEXTBOX { get; set; }
             public string DETAILSTEXTBOX { get; set; }
         }
+
+        public static DRPenv env = new DRPenv();
+        private static string LastResponse = "";
+        private static DateTime UploadTime = DateTime.Now;
+
 
         public static void UploadFile(MainWindow window)
         {     
@@ -38,8 +43,34 @@ namespace DiscordRPModifier.Handlers
 
             string json = JsonConvert.SerializeObject(env);
             var request = new Request();
-            var response = (string)request.Execute("https://localhost:44330/api/values", env, "Post");
-            MessageBox.Show(response.ToString());
+            try
+            {
+                var response = (string)request.Execute("https://drpmodifierapi.azurewebsites.net/api/values", env, "Post");
+                LastResponse = response.ToString();
+            }
+            catch
+            {
+                MessageBox.Show("Error occured connecting to the server");
+            }
+            UploadTime = DateTime.Now;
+            MessageBox.Show(LastResponse);
+        }
+
+        public static bool AllowUpload()
+        {
+            TimeSpan Span = DateTime.Now - UploadTime;
+            if(LastResponse == "Success" && Span.TotalSeconds < 300)
+            {
+                //There is a 5 min cooldown on the API adding 
+                MessageBox.Show("Error : Please wait ~5min before trying to upload again!");
+                return false;
+            } else if(Span.TotalSeconds < 20 && LastResponse != "") 
+            {
+                //Failed upload has a 20 second cooldown to prevent spam to the API
+                MessageBox.Show("Error : Please wait ~20 seconds before trying to upload again!");
+                return false;
+            }
+            return true;
         }
 
     }
