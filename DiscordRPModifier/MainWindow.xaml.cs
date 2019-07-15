@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -204,7 +205,18 @@ namespace DiscordRPModifier
             SettingsHandler.WriteSettings(this);
         }
 
+        private void UploadButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (CheckHandlers.CheckBoxes(this) && UploadHandler.AllowUpload())
+            {
+                UploadHandler.UploadFile(this);
+            }
+        }
         #endregion
 
+        private void Hyperlink_RequestNavigate(object sender, System.Windows.Navigation.RequestNavigateEventArgs e)
+        {
+            Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri));
+        }
     }
 }

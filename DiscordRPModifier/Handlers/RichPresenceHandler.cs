@@ -16,7 +16,7 @@ namespace DiscordRPModifier
             {
                 ShutDown();
             }
-            //true maybe
+
             client = new DiscordRpcClient(window.ClientIDTextBox.Text, true);
 
             client.OnError += (sender, e) =>

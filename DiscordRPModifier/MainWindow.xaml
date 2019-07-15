@@ -12,75 +12,87 @@
             <ColumnDefinition Width="211"/>
             <ColumnDefinition Width="Auto" MinWidth="46.123"/>
         </Grid.ColumnDefinitions>
-        <TabControl Name="MainTabControl" Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="446.214" VerticalAlignment="Top" Width="350.123" Margin="0,0,-47,-87.473">
-            <TabItem Header="Details">
-                <Grid Name ="DetailsGrid" Background="#FF1E1E1E" Margin="0,0,0,81.641" HorizontalAlignment="Left" Width="297.443">
-                    <TextBox Name="DetailsTextBox" HorizontalAlignment="Left" Height="22.246" Margin="10,10,0,0" VerticalAlignment="Top" Width="142.764" Text="Details"/>
-                    <TextBox Name="StateTextBox" HorizontalAlignment="Left" Height="22.246" Margin="10,37.246,0,0" VerticalAlignment="Top" Width="142.764" Text="State"/>
-                    <CheckBox Name="EndTimeCheckBox" Content="End Time" HorizontalAlignment="Left" Margin="10,78.277,0,0" VerticalAlignment="Top" Foreground="White" Click="EndTimeCheckBox_Click" IsChecked="True"/>
-                    <CheckBox Name="TimeElapsedCheckBox" Content="Time Elapsed" HorizontalAlignment="Left" Margin="100.28,78.277,0,0" VerticalAlignment="Top" Foreground="White" Click="TimeElapsedCheckBox_Click"/>
-                    <xctk:IntegerUpDown Name="EndTimeBox" Margin="10,106.789,144.679,208.114" Value="100000" />
-                    <TextBox Name="LargeImageTextBox" HorizontalAlignment="Left" Height="22.246" Margin="10,133.499,0,0" VerticalAlignment="Top" Width="142.764" Text="Large Image Text"/>
-                    <TextBox Name="LargeImageKeyTextBox" HorizontalAlignment="Left" Height="22.246" Margin="10,160.745,0,0" VerticalAlignment="Top" Width="142.764" Text = "Large Image Key"/>
-                    <TextBox Name="SmallImageTextBox" HorizontalAlignment="Left" Height="22.246" Margin="10,187.991,0,0" VerticalAlignment="Top" Width="142.764" Text="Small Image Text"/>
-                    <TextBox Name="SmallImageKeyTextBox" HorizontalAlignment="Left" Height="22.246" Margin="10,215.237,0,0" VerticalAlignment="Top" Width="142.764" Text="Small Image Key"/>
-                    <TextBox Name="PartyIDTextBox" HorizontalAlignment="Left" Height="22.246" Margin="10,242.483,0,0" VerticalAlignment="Top" Width="142.764" Text="Party ID"/>
-                    <TextBox Name="JoinSecretTextBox" HorizontalAlignment="Left" Height="22.246" Margin="10,269.729,0,0" VerticalAlignment="Top" Width="142.764" Text="Join Secret"/>
-                    <TextBox Name="ClientIDTextBox" HorizontalAlignment="Left" Height="22.246" Margin="10,296.975,0,0" VerticalAlignment="Top" Width="142.764" Text="Client ID"/>
-                    <Label Content="Details" HorizontalAlignment="Left" Margin="165,10,0,0" VerticalAlignment="Top" Height="22.246" Foreground="White" FontSize="11"/>
-                    <Label Content="State" HorizontalAlignment="Left" Margin="165,34.326,0,0" VerticalAlignment="Top" Height="22.246" Foreground="White" FontSize="11"/>
-                    <Label Content="End Time in seconds" HorizontalAlignment="Left" Margin="166,107,0,0" VerticalAlignment="Top" Height="22" Foreground="White" FontSize="11" Width="116"/>
-                    <Label Content="Large Image Text" HorizontalAlignment="Left" Margin="166.397,132.579,0,0" VerticalAlignment="Top" Height="25.166" Foreground="White" FontSize="11"/>
-                    <Label Content="Large Image Key" HorizontalAlignment="Left" Margin="166.397,159.745,0,0" VerticalAlignment="Top" Height="25.166" Foreground="White" FontSize="11"/>
-                    <Label Content="Small Image Text" HorizontalAlignment="Left" Margin="166.397,186.911,0,0" VerticalAlignment="Top" Height="25.166" Foreground="White" FontSize="11"/>
-                    <Label Content="Small Image Key" HorizontalAlignment="Left" Margin="166.397,214.237,0,0" VerticalAlignment="Top" Height="25.166" Foreground="White" FontSize="11"/>
-                    <Label Content="Party ID" HorizontalAlignment="Left" Margin="166.397,241.483,0,0" VerticalAlignment="Top" Height="25.166" Foreground="White" FontSize="11"/>
-                    <Label Content="Join Secret" HorizontalAlignment="Left" Margin="166.397,267.649,0,0" VerticalAlignment="Top" Height="25.166" Foreground="White" FontSize="11"/>
-                    <Label Content="Client ID" HorizontalAlignment="Left" Margin="166.397,294.815,0,0" VerticalAlignment="Top" Height="25.166" Foreground="White" FontSize="11"/>
-                </Grid>
-            </TabItem>
-            <TabItem Header="Actions">
-                <Grid Name="ActionsGrid" Background="#FF1E1E1E">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="13*"/>
-                        <ColumnDefinition Width="159*"/>
-                        <ColumnDefinition Width="Auto"/>
-                    </Grid.ColumnDefinitions>
-                    <Button Name="StartButton" Content="Start" HorizontalAlignment="Left" Margin="17,10,0,0" VerticalAlignment="Top" Width="84" Height="85" Click="StartButton_Click" Grid.ColumnSpan="2">
-                        <Button.Background>
-                            <ImageBrush ImageSource="start.png"/>
-                        </Button.Background>
-                    </Button>
-                    <Button Name="UpdateButton" Content="Update" HorizontalAlignment="Left" Margin="80.239,10,0,0" VerticalAlignment="Top" Width="84" Height="85" Foreground="White" Click="UpdateButton_Click" Grid.Column="1">
-                        <Button.Background>
-                            <ImageBrush ImageSource="update.png"/>
-                        </Button.Background>
-                    </Button>
-                    <Button Name="StopButton" Content="Stop" HorizontalAlignment="Left" Margin="169.239,10,0,0" VerticalAlignment="Top" Width="84" RenderTransformOrigin="0.5,0.5" Height="85" Foreground="White" Click="StopButton_Click" Grid.Column="1">
-                        <Button.Background>
-                            <ImageBrush ImageSource="stop.jpg"/>
-                        </Button.Background>
-                    </Button>
-                    <Button Name="OpenFileButton" Content="Open File" HorizontalAlignment="Left" Height="27" Margin="61.239,177,0,0" VerticalAlignment="Top" Width="82" Click="OpenFileButton_Click" Grid.Column="1" />
-                    <Button Name="SaveFileButton" Content="Save File" HorizontalAlignment="Left" Height="27" Margin="152.239,177,0,0" VerticalAlignment="Top" Width="82" Click="SaveFileButton_Click" Grid.Column="1"/>
-                    <Label Content="File Name" HorizontalAlignment="Left" Margin="19,146,0,0" VerticalAlignment="Top" Foreground="White" Grid.ColumnSpan="2"/>
-                    <TextBox Name ="FileNameTextBox" HorizontalAlignment="Left" Height="26" Margin="61.239,146,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="173" Grid.Column="1"/>
-                    <Button Name="PreviewButton" Content="Preview" HorizontalAlignment="Left" Margin="17,265,0,0" VerticalAlignment="Top" Width="262" Height="43" Grid.ColumnSpan="2" Click="PreviewButton_Click"/>
-                </Grid>
-            </TabItem>
-            <TabItem Header="Settings">
-                <Grid Name="SettingsGrid" Background="#FF1E1E1E" RenderTransformOrigin="0.99,0.501">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="77*"/>
-                        <ColumnDefinition Width="221*"/>
-                    </Grid.ColumnDefinitions>
-                    <CheckBox Name="LightThemeCheckBox" Content="Light Mode" HorizontalAlignment="Left" Height="23" Margin="11,10,0,0" VerticalAlignment="Top" Width="89" Foreground="White" Grid.ColumnSpan="2" Click="LightThemeCheckBox_Click"/>
-                    <CheckBox Name="StartupCheckBox" Content="Launch on Startup" HorizontalAlignment="Left" Margin="11,33,0,0" VerticalAlignment="Top" Background="White" Foreground="White" Grid.ColumnSpan="2" Width="142" Click="StartupCheckBox_Click"/>
-                    <TextBox Name="StartPresetTextBox" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="24" Margin="11,54,0,0" TextWrapping="Wrap" Text="Preset Name" VerticalAlignment="Top" Width="120" Background="#FF1E1E1E" Foreground="White"/>
-                    <Label Content="Preset to launch on start" Grid.Column="1" HorizontalAlignment="Left" Margin="43,52,0,0" VerticalAlignment="Top" Width="160" Foreground="White"/>
-                    <Button Name="SaveSettingsButton" Content="Save Settings" HorizontalAlignment="Left" Margin="11,83,0,0" VerticalAlignment="Top" Width="89" Grid.ColumnSpan="2" Click="SaveSettingsButton_Click"/>
-                </Grid>
-            </TabItem>
-        </TabControl>
+        <Grid Grid.ColumnSpan="3" Margin="0,0,10,0">
+            <TabControl x:Name="MainTabControl" HorizontalAlignment="Left" Height="446" VerticalAlignment="Top" Width="350">
+                <TabItem Header="Details">
+                    <Grid x:Name ="DetailsGrid" Background="#FF1E1E1E" Margin="0,0,0,81.641" HorizontalAlignment="Left" Width="297.443">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="5*"/>
+                            <RowDefinition Height="9*"/>
+                        </Grid.RowDefinitions>
+                        <TextBox x:Name="DetailsTextBox" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" VerticalAlignment="Top" Width="143" Text="Details"/>
+                        <TextBox x:Name="StateTextBox" HorizontalAlignment="Left" Height="23" Margin="10,37,0,0" VerticalAlignment="Top" Width="143" Text="State"/>
+                        <CheckBox x:Name="EndTimeCheckBox" Content="End Time" HorizontalAlignment="Left" Margin="10,78,0,0" VerticalAlignment="Top" Foreground="White" Click="EndTimeCheckBox_Click" IsChecked="True"/>
+                        <CheckBox x:Name="TimeElapsedCheckBox" Content="Time Elapsed" HorizontalAlignment="Left" Margin="100,78,0,0" VerticalAlignment="Top" Foreground="White" Click="TimeElapsedCheckBox_Click"/>
+                        <xctk:IntegerUpDown x:Name="EndTimeBox" Margin="0,107,145.443,0" Value="100000" HorizontalAlignment="Right" Width="142" Height="21" VerticalAlignment="Top" Grid.RowSpan="2" />
+                        <TextBox x:Name="LargeImageTextBox" HorizontalAlignment="Left" Height="23" Margin="10,13,0,0" VerticalAlignment="Top" Width="143" Text="Large Image Text" Grid.Row="1"/>
+                        <TextBox x:Name="LargeImageKeyTextBox" HorizontalAlignment="Left" Height="23" Margin="10,41,0,0" VerticalAlignment="Top" Width="143" Text = "Large Image Key" Grid.Row="1"/>
+                        <TextBox x:Name="SmallImageTextBox" HorizontalAlignment="Left" Height="23" Margin="10,68,0,0" VerticalAlignment="Top" Width="143" Text="Small Image Text" Grid.Row="1"/>
+                        <TextBox x:Name="SmallImageKeyTextBox" HorizontalAlignment="Left" Height="23" Margin="10,95,0,0" VerticalAlignment="Top" Width="143" Text="Small Image Key" Grid.Row="1"/>
+                        <TextBox x:Name="PartyIDTextBox" HorizontalAlignment="Left" Height="23" Margin="10,122,0,0" VerticalAlignment="Top" Width="143" Text="Party ID" Grid.Row="1"/>
+                        <TextBox x:Name="JoinSecretTextBox" HorizontalAlignment="Left" Height="23" Margin="10,150,0,0" VerticalAlignment="Top" Width="143" Text="Join Secret" Grid.Row="1"/>
+                        <TextBox x:Name="ClientIDTextBox" HorizontalAlignment="Left" Height="23" Margin="10,177,0,0" VerticalAlignment="Top" Width="143" Text="Client ID" Grid.Row="1"/>
+                        <Label Content="Details" HorizontalAlignment="Left" Margin="165,10,0,0" VerticalAlignment="Top" Height="22" Foreground="White" FontSize="11"/>
+                        <Label Content="State" HorizontalAlignment="Left" Margin="165,34,0,0" VerticalAlignment="Top" Height="23" Foreground="White" FontSize="11"/>
+                        <Label Content="End Time in seconds" HorizontalAlignment="Left" Margin="166,107,0,0" VerticalAlignment="Top" Height="22" Foreground="White" FontSize="11" Width="116" Grid.RowSpan="2"/>
+                        <Label Content="Large Image Text" HorizontalAlignment="Left" Margin="166,13,0,0" VerticalAlignment="Top" Height="25" Foreground="White" FontSize="11" Grid.Row="1"/>
+                        <Label Content="Large Image Key" HorizontalAlignment="Left" Margin="166,40,0,0" VerticalAlignment="Top" Height="25" Foreground="White" FontSize="11" Grid.Row="1"/>
+                        <Label Content="Small Image Text" HorizontalAlignment="Left" Margin="166,67,0,0" VerticalAlignment="Top" Height="25" Foreground="White" FontSize="11" Grid.Row="1"/>
+                        <Label Content="Small Image Key" HorizontalAlignment="Left" Margin="166,94,0,0" VerticalAlignment="Top" Height="25" Foreground="White" FontSize="11" Grid.Row="1"/>
+                        <Label Content="Party ID" HorizontalAlignment="Left" Margin="166,121,0,0" VerticalAlignment="Top" Height="26" Foreground="White" FontSize="11" Grid.Row="1"/>
+                        <Label Content="Join Secret" HorizontalAlignment="Left" Margin="166,148,0,0" VerticalAlignment="Top" Height="25" Foreground="White" FontSize="11" Grid.Row="1"/>
+                        <Label Content="Client ID" HorizontalAlignment="Left" Margin="166,175,0,0" VerticalAlignment="Top" Height="25" Foreground="White" FontSize="11" Grid.Row="1"/>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Actions">
+                    <Grid x:Name="ActionsGrid" Background="#FF1E1E1E">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="13*"/>
+                            <ColumnDefinition Width="159*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Button x:Name="StartButton" Content="Start" HorizontalAlignment="Left" Margin="17,10,0,0" VerticalAlignment="Top" Width="84" Height="85" Click="StartButton_Click" Grid.ColumnSpan="2">
+                            <Button.Background>
+                                <ImageBrush ImageSource="start.png"/>
+                            </Button.Background>
+                        </Button>
+                        <Button x:Name="UpdateButton" Content="Update" HorizontalAlignment="Left" Margin="80.239,10,0,0" VerticalAlignment="Top" Width="84" Height="85" Foreground="White" Click="UpdateButton_Click" Grid.Column="1">
+                            <Button.Background>
+                                <ImageBrush ImageSource="update.png"/>
+                            </Button.Background>
+                        </Button>
+                        <Button x:Name="StopButton" Content="Stop" HorizontalAlignment="Left" Margin="169.239,10,0,0" VerticalAlignment="Top" Width="84" RenderTransformOrigin="0.5,0.5" Height="85" Foreground="White" Click="StopButton_Click" Grid.Column="1">
+                            <Button.Background>
+                                <ImageBrush ImageSource="stop.jpg"/>
+                            </Button.Background>
+                        </Button>
+                        <Button x:Name="OpenFileButton" Content="Open File" HorizontalAlignment="Left" Height="27" Margin="65,152,0,0" VerticalAlignment="Top" Width="82" Click="OpenFileButton_Click" Grid.Column="1" />
+                        <Button x:Name="SaveFileButton" Content="Save File" HorizontalAlignment="Left" Height="27" Margin="156,152,0,0" VerticalAlignment="Top" Width="82" Click="SaveFileButton_Click" Grid.Column="1"/>
+                        <Label Content="File Name" HorizontalAlignment="Left" Margin="23,121,0,0" VerticalAlignment="Top" Foreground="White" Grid.ColumnSpan="2"/>
+                        <TextBox x:Name ="FileNameTextBox" HorizontalAlignment="Left" Height="26" Margin="65,121,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="173" Grid.Column="1"/>
+                        <Button x:Name="PreviewButton" Content="Preview" HorizontalAlignment="Left" Margin="14,201,0,0" VerticalAlignment="Top" Width="260" Height="54" Grid.ColumnSpan="2" Click="PreviewButton_Click"/>
+                        <Button x:Name="UploadButton" Content="Upload Preset to Server" HorizontalAlignment="Left" Margin="14,260,0,0" VerticalAlignment="Top" Width="260" Height="22" Click="UploadButton_Click" Grid.ColumnSpan="2"/>
+                        <Label Grid.Column="1" HorizontalAlignment="Left" Margin="38,282,0,0" VerticalAlignment="Top" Width="169" >
+                            <Hyperlink Name="HyperLinkLabel"  NavigateUri="https://drpmodifierweb.azurewebsites.net/fetchdata" RequestNavigate="Hyperlink_RequestNavigate">
+                                Download more Presets Here!
+                            </Hyperlink>
+                        </Label>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Settings">
+                    <Grid x:Name="SettingsGrid" Background="#FF1E1E1E" RenderTransformOrigin="0.99,0.501">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="77*"/>
+                            <ColumnDefinition Width="221*"/>
+                        </Grid.ColumnDefinitions>
+                        <CheckBox x:Name="LightThemeCheckBox" Content="Light Mode" HorizontalAlignment="Left" Height="23" Margin="11,10,0,0" VerticalAlignment="Top" Width="89" Foreground="White" Grid.ColumnSpan="2" Click="LightThemeCheckBox_Click"/>
+                        <CheckBox x:Name="StartupCheckBox" Content="Launch on Startup" HorizontalAlignment="Left" Margin="11,33,0,0" VerticalAlignment="Top" Background="White" Foreground="White" Grid.ColumnSpan="2" Width="142" Click="StartupCheckBox_Click"/>
+                        <TextBox x:Name="StartPresetTextBox" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="24" Margin="11,54,0,0" TextWrapping="Wrap" Text="Preset Name" VerticalAlignment="Top" Width="120" Background="#FF1E1E1E" Foreground="White"/>
+                        <Label Content="Preset to launch on start" Grid.Column="1" HorizontalAlignment="Left" Margin="43,52,0,0" VerticalAlignment="Top" Width="160" Foreground="White"/>
+                        <Button x:Name="SaveSettingsButton" Content="Save Settings" HorizontalAlignment="Left" Margin="11,83,0,0" VerticalAlignment="Top" Width="89" Grid.ColumnSpan="2" Click="SaveSettingsButton_Click"/>
+                    </Grid>
+                </TabItem>
+            </TabControl>
+        </Grid>
     </Grid>
 </Window>
