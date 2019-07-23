@@ -67,7 +67,7 @@ namespace DiscordRPModifier
             StopButton.SetBinding(ForegroundProperty, new Binding("CurrentForeground"));
         }
 
-        private void SetGridBindings(Grid grid)
+        private static void SetGridBindings(Grid grid)
         {
             grid.SetBinding(BackgroundProperty, new Binding("CurrentBackground"));
             foreach (Control control in grid.Children)

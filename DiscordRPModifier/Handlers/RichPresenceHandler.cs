@@ -58,21 +58,21 @@ namespace DiscordRPModifier
             DateTime utcTime = DateTime.UtcNow;
             gameTime = DateTime.UtcNow.AddSeconds(Convert.ToDouble(window.EndTimeBox.Value));
             TimeSpan elapseTime = gameTime - utcTime;
-            client.SetPresence(new RichPresence()
+            client.SetPresence(new RichPresence
             {
                 Details = window.DetailsTextBox.Text,
                 State = window.StateTextBox.Text,
-                Party = new Party()
+                Party = new Party
                 {
                     ID = window.PartyIDTextBox.Text,
                     Max = 21,
                     Size = 1,
                 },
-                Secrets = new Secrets()
+                Secrets = new Secrets
                 {
                     JoinSecret = window.JoinSecretTextBox.Text,
                 },
-                Assets = new Assets()
+                Assets = new Assets
                 {
                     LargeImageKey = window.LargeImageKeyTextBox.Text,
                     LargeImageText = window.LargeImageTextBox.Text,

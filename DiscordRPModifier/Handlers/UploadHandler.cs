@@ -5,7 +5,7 @@ using System;
 
 namespace DiscordRPModifier.Handlers
 {
-    class UploadHandler
+    static class UploadHandler
     {
         public class DRPenv
         {
@@ -22,7 +22,7 @@ namespace DiscordRPModifier.Handlers
             public string DETAILSTEXTBOX { get; set; }
         }
 
-        public static DRPenv env = new DRPenv();
+        public static readonly DRPenv env = new DRPenv();
         private static string LastResponse = "";
         private static DateTime UploadTime = DateTime.Now;
 
@@ -41,12 +41,11 @@ namespace DiscordRPModifier.Handlers
             env.LARGEIMAGETEXTBOX = window.LargeImageTextBox.Text;
             env.DETAILSTEXTBOX = window.DetailsTextBox.Text;
 
-            string json = JsonConvert.SerializeObject(env);
             var request = new Request();
             try
             {
                 var response = (string)request.Execute("https://drpmodifierapi.azurewebsites.net/api/values", env, "Post");
-                LastResponse = response.ToString();
+                LastResponse = response;
             }
             catch
             {

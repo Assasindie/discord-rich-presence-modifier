@@ -5,7 +5,7 @@ using System.Windows.Media;
 
 namespace DiscordRPModifier.Handlers
 {
-    class CheckHandlers
+    static class CheckHandlers
     {
         //function for finding what type of control it is.
         public static IEnumerable<T> FindVisualChildren<T>(DependencyObject depObj) where T : DependencyObject
