@@ -5,6 +5,8 @@ Create your own discord rich precense with this handy tool!
 https://drpmodifierweb.azurewebsites.net/
 
 ## Installation
+Requires Visual Studio 2019 to compile and contribute.
+
 Download and compile https://github.com/Lachee/discord-rpc-csharp#building and add a reference to the DiscordRPC.dll
 
 
