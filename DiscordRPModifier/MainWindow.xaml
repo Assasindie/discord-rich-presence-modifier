@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         mc:Ignorable="d"
-        Title="DRPmodifier" Height="389.741" Width="305.611" Background="#FF1E1E1E">
+        Title="DRPmodifier" Height="389.741" Width="305.611" Background="#FF1E1E1E" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
     <Grid Name="MainGrid">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="46"/>
