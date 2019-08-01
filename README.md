@@ -1,9 +1,6 @@
 # discord-rich-presence-modifier
 Create your own discord rich precense with this handy tool!
 
-## Download env Files
-https://drpmodifierweb.azurewebsites.net/
-
 ## Installation
 Requires Visual Studio 2019 to compile and contribute.
 
