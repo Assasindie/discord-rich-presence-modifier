@@ -204,7 +204,8 @@ namespace DiscordRPModifier
         {
             SettingsHandler.WriteSettings(this);
         }
-
+        
+        //unused website is down
         private void UploadButton_Click(object sender, RoutedEventArgs e)
         {
             if (CheckHandlers.CheckBoxes(this) && UploadHandler.AllowUpload())
@@ -214,6 +215,7 @@ namespace DiscordRPModifier
         }
         #endregion
 
+        //unused website is down
         private void Hyperlink_RequestNavigate(object sender, System.Windows.Navigation.RequestNavigateEventArgs e)
         {
             Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri));

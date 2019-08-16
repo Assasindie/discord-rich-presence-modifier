@@ -71,12 +71,6 @@
                         <Label Content="File Name" HorizontalAlignment="Left" Margin="23,121,0,0" VerticalAlignment="Top" Foreground="White" Grid.ColumnSpan="2"/>
                         <TextBox x:Name ="FileNameTextBox" HorizontalAlignment="Left" Height="26" Margin="65,121,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="173" Grid.Column="1"/>
                         <Button x:Name="PreviewButton" Content="Preview" HorizontalAlignment="Left" Margin="14,201,0,0" VerticalAlignment="Top" Width="260" Height="54" Grid.ColumnSpan="2" Click="PreviewButton_Click"/>
-                        <Button x:Name="UploadButton" Content="Upload Preset to Server" HorizontalAlignment="Left" Margin="14,260,0,0" VerticalAlignment="Top" Width="260" Height="22" Click="UploadButton_Click" Grid.ColumnSpan="2"/>
-                        <Label Grid.Column="1" HorizontalAlignment="Left" Margin="38,282,0,0" VerticalAlignment="Top" Width="169" >
-                            <Hyperlink Name="HyperLinkLabel"  NavigateUri="https://drpmodifierweb.azurewebsites.net/fetchdata" RequestNavigate="Hyperlink_RequestNavigate">
-                                Download more Presets Here!
-                            </Hyperlink>
-                        </Label>
                     </Grid>
                 </TabItem>
                 <TabItem Header="Settings">

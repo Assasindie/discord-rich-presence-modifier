@@ -5,6 +5,7 @@ using System;
 
 namespace DiscordRPModifier.Handlers
 {
+    // class is unused now as website down
     static class UploadHandler
     {
         public class DRPenv
