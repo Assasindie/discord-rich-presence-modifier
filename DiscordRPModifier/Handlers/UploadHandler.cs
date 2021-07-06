@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using JsonRequest;
 using System.Windows;
 using System;
 
@@ -42,6 +41,7 @@ namespace DiscordRPModifier.Handlers
             env.LARGEIMAGETEXTBOX = window.LargeImageTextBox.Text;
             env.DETAILSTEXTBOX = window.DetailsTextBox.Text;
 
+            /*
             var request = new Request();
             try
             {
@@ -52,6 +52,7 @@ namespace DiscordRPModifier.Handlers
             {
                 MessageBox.Show("Error occured connecting to the server");
             }
+            */
             UploadTime = DateTime.Now;
             MessageBox.Show(LastResponse);
         }

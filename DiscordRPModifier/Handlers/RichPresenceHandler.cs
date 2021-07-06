@@ -17,7 +17,7 @@ namespace DiscordRPModifier
                 ShutDown();
             }
 
-            client = new DiscordRpcClient(window.ClientIDTextBox.Text, true);
+            client = new DiscordRpcClient(window.ClientIDTextBox.Text);
 
             client.OnError += (sender, e) =>
             {
@@ -40,6 +40,7 @@ namespace DiscordRPModifier
             };
 
             client.Initialize();
+            client.RegisterUriScheme();
             ChangePresence(window);
             client.Invoke();
             initialised = true;
